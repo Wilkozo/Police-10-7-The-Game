@@ -16,6 +16,7 @@ public class PlayerMove : MonoBehaviour
 
     public bool canMove = true;
     [SerializeField] WheelDrive drive;
+    [SerializeField] DriftCamera camControl;
 
     public bool isActive = true;
     public Camera mainCam;
@@ -36,7 +37,7 @@ public class PlayerMove : MonoBehaviour
             //add code so the player can leave and enter cars
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
             this.gameObject.GetComponent<CharacterController>().enabled = true;
-            drive.PlayerDrivable = false;
+            this.transform.parent.GetComponent<WheelDrive>().PlayerDrivable = false;
             this.transform.parent = null;
 
             drivingCam.enabled = false;
@@ -69,15 +70,20 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetButtonDown("EnterCar") && other.tag == "Car")
         {
-            //add code so the player can leave and enter cars
+            //sets which car can be driven
+            other.gameObject.GetComponent<WheelDrive>().PlayerDrivable = true;
+            //disable walking controls
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
-            this.transform.parent = other.gameObject.transform;
-            drive.PlayerDrivable = true;
-          
+            //change the cameras
             drivingCam.enabled = true;
             mainCam.enabled = false;
-        }
+            //set the target for the driving camera
+            camControl.enterCar(other.gameObject.transform.Find("CamLookAtTarget"), other.gameObject.transform.Find("CamPosition"), other.gameObject.transform.Find("CamSidePosition"));
+            //set the player to a child of the car
+            this.transform.parent = other.gameObject.transform;
+   
+          }
         
     }
 

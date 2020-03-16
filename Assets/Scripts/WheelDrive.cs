@@ -64,9 +64,8 @@ public class WheelDrive : MonoBehaviour
     // This helps us to figure our which wheels are front ones and which are rear.
     void Update()
     {
-        if (PlayerDrivable)
+        if (this.PlayerDrivable)
         {
-          
 
             m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
 
