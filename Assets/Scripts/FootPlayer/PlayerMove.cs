@@ -26,7 +26,7 @@ public class PlayerMove : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
-        drivingCam.enabled = false;
+        //drivingCam.enabled = false;
     }
 
     void Update()
@@ -40,8 +40,8 @@ public class PlayerMove : MonoBehaviour
             this.transform.parent.GetComponent<WheelDrive>().PlayerDrivable = false;
             this.transform.parent = null;
 
-            drivingCam.enabled = false;
-            mainCam.enabled = true;
+          //  drivingCam.enabled = false;
+           // mainCam.enabled = true;
         }
 
         //various movement settings
@@ -76,10 +76,10 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             //change the cameras
-            drivingCam.enabled = true;
-            mainCam.enabled = false;
+            //drivingCam.enabled = true;
+           // mainCam.enabled = false;
             //set the target for the driving camera
-            camControl.enterCar(other.gameObject.transform.Find("CamLookAtTarget"), other.gameObject.transform.Find("CamPosition"), other.gameObject.transform.Find("CamSidePosition"));
+           // camControl.enterCar(other.gameObject.transform.Find("CamLookAtTarget"), other.gameObject.transform.Find("CamPosition"), other.gameObject.transform.Find("CamSidePosition"));
             //set the player to a child of the car
             this.transform.parent = other.gameObject.transform;
    
