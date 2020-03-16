@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
             //add code so the player can leave and enter cars
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
             this.gameObject.GetComponent<CharacterController>().enabled = true;
-            this.transform.parent.GetComponent<WheelDrive>().PlayerDrivable = false;
+            this.transform.parent.GetComponentInChildren<WheelDrive>().PlayerDrivable = false;
 
             this.transform.parent = null;
         }
@@ -74,7 +74,7 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetButtonDown("EnterCar") && other.tag == "Car")
         {
             //sets which car can be driven
-            other.gameObject.GetComponent<WheelDrive>().PlayerDrivable = true;
+            other.gameObject.GetComponentInChildren<WheelDrive>().PlayerDrivable = true;
             //disable walking controls
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
@@ -83,6 +83,7 @@ public class PlayerMove : MonoBehaviour
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 other.gameObject.GetComponent<BasicWander>().enabled = false;
+                this.transform.parent = other.gameObject.transform.Find("Car");
             }
 
         }
@@ -99,12 +100,13 @@ public class PlayerMove : MonoBehaviour
             //disable walking controls
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
-
+            this.transform.parent = other.gameObject.transform;
             if (other.gameObject.GetComponent<NavMeshAgent>()) {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 other.gameObject.GetComponent<BasicWander>().enabled = false;
+                this.transform.parent = other.gameObject.transform.Find("Car");
             }
-            this.transform.parent = other.gameObject.transform;
+            //this.transform.parent = other.gameObject.transform.Find("Car");
 
         }
     }
