@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -22,11 +23,12 @@ public class PlayerMove : MonoBehaviour
     public Camera mainCam;
     public Camera drivingCam;
 
+    public float gravity = 10;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         rotation.y = transform.eulerAngles.y;
-        //drivingCam.enabled = false;
     }
 
     void Update()
@@ -38,10 +40,8 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
             this.gameObject.GetComponent<CharacterController>().enabled = true;
             this.transform.parent.GetComponent<WheelDrive>().PlayerDrivable = false;
-            this.transform.parent = null;
 
-          //  drivingCam.enabled = false;
-           // mainCam.enabled = true;
+            this.transform.parent = null;
         }
 
         //various movement settings
@@ -50,6 +50,8 @@ public class PlayerMove : MonoBehaviour
         float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+
+        moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
@@ -65,6 +67,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+
     private void OnTriggerStay(Collider other)
     {
 
@@ -75,21 +78,35 @@ public class PlayerMove : MonoBehaviour
             //disable walking controls
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
-            //change the cameras
-            //drivingCam.enabled = true;
-           // mainCam.enabled = false;
-            //set the target for the driving camera
-           // camControl.enterCar(other.gameObject.transform.Find("CamLookAtTarget"), other.gameObject.transform.Find("CamPosition"), other.gameObject.transform.Find("CamSidePosition"));
-            //set the player to a child of the car
             this.transform.parent = other.gameObject.transform;
-   
-          }
+            if (other.gameObject.GetComponent<NavMeshAgent>())
+            {
+                other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+                other.gameObject.GetComponent<BasicWander>().enabled = false;
+            }
+
+        }
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
-      
+
+        if (Input.GetButtonDown("EnterCar") && other.tag == "Car")
+        {
+            //sets which car can be driven
+            other.gameObject.GetComponent<WheelDrive>().PlayerDrivable = true;
+            //disable walking controls
+            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
+            this.gameObject.GetComponent<CharacterController>().enabled = false;
+
+            if (other.gameObject.GetComponent<NavMeshAgent>()) {
+                other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
+                other.gameObject.GetComponent<BasicWander>().enabled = false;
+            }
+            this.transform.parent = other.gameObject.transform;
+
+        }
     }
 
     //when the player leaves the climbable zone
