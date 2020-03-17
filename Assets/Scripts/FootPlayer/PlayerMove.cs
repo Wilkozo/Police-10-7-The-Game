@@ -101,7 +101,8 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.transform.parent = other.gameObject.transform;
-            if (other.gameObject.GetComponent<NavMeshAgent>()) {
+            if (other.gameObject.GetComponent<NavMeshAgent>()) 
+            {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 other.gameObject.GetComponent<BasicWander>().enabled = false;
                 this.transform.parent = other.gameObject.transform.Find("Car");
