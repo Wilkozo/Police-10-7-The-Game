@@ -47,22 +47,25 @@ public class Detect : MonoBehaviour
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), fwd, out objectHit, viewLength))
         {
              agent.speed = 0;
+            agent.velocity = Vector3.zero;
         }
         else {
             agent.speed = 8;
         }
 
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y- 0.75f, transform.position.z), fwd, out objectHit, viewLength))
-        {
-            agent.speed = 0;
-        }
-        else
-        {
-            agent.speed = 8;
-        }
+        //if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y- 0.75f, transform.position.z), fwd, out objectHit, viewLength))
+        //{
+        //    agent.speed = 0;
+        //    agent.velocity = Vector3.zero;
+        //}
+        //else
+        //{
+        //    agent.speed = 8;
+        //}
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z), fwd, out objectHit, viewLength))
         {
             agent.speed = 0;
+            agent.velocity = Vector3.zero;
         }
         else
         {
@@ -71,6 +74,7 @@ public class Detect : MonoBehaviour
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), fwd, out objectHit, viewLength))
         {
             agent.speed = 0;
+            agent.velocity = Vector3.zero;
         }
         else
         {
@@ -79,6 +83,7 @@ public class Detect : MonoBehaviour
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z), fwd, out objectHit, viewLength))
         {
             agent.speed = 0;
+            agent.velocity = Vector3.zero;
         }
         else
         {
