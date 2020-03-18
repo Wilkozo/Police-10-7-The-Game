@@ -59,6 +59,14 @@ public class WheelDrive : MonoBehaviour
         player = GameObject.Find("Player");
     }
 
+    public void stopTheCar() {
+
+        foreach (WheelCollider wheel in m_Wheels)
+        {
+            wheel.motorTorque = 1.0f;
+        }
+    }
+
     // This is a really simple approach to updating wheels.
     // We simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero.
     // This helps us to figure our which wheels are front ones and which are rear.

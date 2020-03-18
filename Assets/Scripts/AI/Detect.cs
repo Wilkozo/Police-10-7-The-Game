@@ -32,9 +32,6 @@ public class Detect : MonoBehaviour
 
         //raycast hiting object
         RaycastHit objectHit;
-
-        //gets the target position to move to
-        Vector3 targetDir = player.transform.position - transform.position;
     
         //get the forward vector3
         Vector3 fwd = transform.TransformDirection(Vector3.forward);
@@ -46,8 +43,7 @@ public class Detect : MonoBehaviour
         Debug.DrawRay(new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z), fwd * viewLength, Color.green);
 
 
-        //if it hits something then proceed
-
+        //if it hits something then stop
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), fwd, out objectHit, viewLength))
         {
              agent.speed = 0;
