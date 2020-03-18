@@ -2674,7 +2674,7 @@ MonoBehaviour:
   wander: {fileID: 648198861}
   player: {fileID: 4951749}
   speed: 0
-  viewLength: 12.5
+  viewLength: 7.5
 --- !u!65 &648198863
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3459,7 +3459,7 @@ MonoBehaviour:
   wander: {fileID: 876106229}
   player: {fileID: 4951749}
   speed: 0
-  viewLength: 12.5
+  viewLength: 7.5
 --- !u!114 &876106229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3604,7 +3604,7 @@ MonoBehaviour:
   wander: {fileID: 956170928}
   player: {fileID: 4951749}
   speed: 0
-  viewLength: 12.5
+  viewLength: 7.5
 --- !u!65 &956170930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4188,7 +4188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012934762246, guid: 6577377bae7db18429e690f8f8f57881, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.3
+      value: -10.5
       objectReference: {fileID: 0}
     - target: {fileID: 4000012934762246, guid: 6577377bae7db18429e690f8f8f57881, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4196,7 +4196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000012934762246, guid: 6577377bae7db18429e690f8f8f57881, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.4
+      value: -12.4
       objectReference: {fileID: 0}
     - target: {fileID: 4000012934762246, guid: 6577377bae7db18429e690f8f8f57881, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4280,12 +4280,12 @@ PrefabInstance:
     - target: {fileID: 146000011612348708, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 34293.516
+      value: 34293.51
       objectReference: {fileID: 0}
     - target: {fileID: 146000011612348708, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 5486.963
+      value: 5486.9624
       objectReference: {fileID: 0}
     - target: {fileID: 146000011612348708, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
@@ -4300,12 +4300,12 @@ PrefabInstance:
     - target: {fileID: 146000011699788318, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 40208.586
+      value: 40208.598
       objectReference: {fileID: 0}
     - target: {fileID: 146000011699788318, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 6433.3735
+      value: 6433.376
       objectReference: {fileID: 0}
     - target: {fileID: 146000011699788318, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
@@ -4325,7 +4325,7 @@ PrefabInstance:
     - target: {fileID: 146000012133133230, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 6513.0376
+      value: 6513.038
       objectReference: {fileID: 0}
     - target: {fileID: 146000012133133230, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
@@ -4340,12 +4340,12 @@ PrefabInstance:
     - target: {fileID: 146000013638572144, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.spring
-      value: 34791.414
+      value: 34791.406
       objectReference: {fileID: 0}
     - target: {fileID: 146000013638572144, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
       propertyPath: m_SuspensionSpring.damper
-      value: 5566.6265
+      value: 5566.6245
       objectReference: {fileID: 0}
     - target: {fileID: 146000013638572144, guid: 6577377bae7db18429e690f8f8f57881,
         type: 3}
@@ -4977,7 +4977,7 @@ MonoBehaviour:
   wander: {fileID: 1378876776}
   player: {fileID: 4951749}
   speed: 0
-  viewLength: 12.5
+  viewLength: 7.5
 --- !u!114 &1378876776
 MonoBehaviour:
   m_ObjectHideFlags: 0
