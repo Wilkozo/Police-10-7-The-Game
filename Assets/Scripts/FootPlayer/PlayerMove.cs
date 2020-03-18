@@ -41,6 +41,7 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<CharacterController>().enabled = true;
             this.transform.parent.GetComponentInChildren<WheelDrive>().PlayerDrivable = false;
 
+            this.transform.parent.GetComponent<WheelDrive>().maxTorque = 0.0f;
             this.transform.parent = null;
         }
 
@@ -83,7 +84,7 @@ public class PlayerMove : MonoBehaviour
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 other.gameObject.GetComponent<BasicWander>().enabled = false;
-                this.transform.parent = other.gameObject.transform.Find("Car");
+                this.transform.parent = other.gameObject.transform;
             }
 
         }
@@ -105,7 +106,7 @@ public class PlayerMove : MonoBehaviour
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 other.gameObject.GetComponent<BasicWander>().enabled = false;
-                this.transform.parent = other.gameObject.transform.Find("Car");
+                this.transform.parent = other.gameObject.transform;
             }
             //this.transform.parent = other.gameObject.transform.Find("Car");
 

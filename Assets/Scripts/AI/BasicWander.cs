@@ -7,13 +7,13 @@ using UnityEngine;
 //used as a base class for ai to wander
 public class BasicWander : MonoBehaviour
 {
-
-    [SerializeField] public bool playerNotSeen = true;
-    //[SerializeField] PlayerInteract player;
-    public Transform[] points;
+    //public Transform[] points;
+    public List<Transform> points;
     private int destPoint = 0;
     private NavMeshAgent agent;
     public float timer;
+
+    public Transform pathToFollow;
 
     void Start()
     {
@@ -21,24 +21,29 @@ public class BasicWander : MonoBehaviour
 
         agent.autoBraking = true;
 
+
+        foreach (Transform child in pathToFollow)
+        {
+            points.Add(child.gameObject.transform);
+        }
+
         GotoNextPoint();
+
     }
 
 
     void GotoNextPoint()
     {
         // Returns if no points have been set up
-        if (points.Length == 0)
+        if (points.Count == 0)
             return;
-
-        int rand = Random.Range(0, points.Length);
 
         // Set the agent to go to the currently selected destination.
         agent.destination = points[destPoint].position;
 
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
-        destPoint = (destPoint + 1) % points.Length;
+        destPoint = (destPoint + 1) % points.Count;
     }
 
 
