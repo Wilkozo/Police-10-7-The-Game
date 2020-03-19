@@ -39,16 +39,18 @@ public class RadioController : MonoBehaviour
              {
                 //choose a random track when a player enters a car
                 trackToPlay = Random.Range(0, radioTracks.Count);
-             }
-
-            audioSource = radioTracks[trackToPlay];
-            //play some music
-            audioSource.Play((ulong)trackToPlay);
+                audioSource = radioTracks[trackToPlay];
+                //play some music
+                audioSource.Play((ulong)trackToPlay);
+                Debug.Log("Should be playing audio");
+            }
+      
 
         }
-        else {
+        else
+        {
             //disable the radio system if the player is not in a car 
-            audioSource.Stop();  
+            audioSource.Stop();
         }
     }
 }
