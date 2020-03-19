@@ -6,7 +6,7 @@ public class RadioController : MonoBehaviour
 {
 
     //list of all radio tracks
-    public List<AudioClip> radioTracks;
+    public List<AudioSource> radioTracks;
     public Transform trackHolder;
     public AudioSource audioSource;
 
@@ -21,7 +21,7 @@ public class RadioController : MonoBehaviour
         //get all the radio tracks
         foreach (Transform child in trackHolder)
         {
-            radioTracks.Add(child.gameObject.transform.GetComponent<AudioClip>());
+            radioTracks.Add(child.gameObject.transform.GetComponent<AudioSource>());
         }
     }
 
@@ -31,15 +31,17 @@ public class RadioController : MonoBehaviour
         //sets the radio to play if the player is in a car
         if (player.GetComponent<MeshRenderer>().enabled == false)
         {
+            audioSource = radioTracks[trackToPlay];
             //if the audio source is not playing anything
-             if (!audioSource.isPlaying)
+            if (!audioSource.isPlaying)
              {
                 //choose a random track when a player enters a car
                 trackToPlay = Random.Range(0, radioTracks.Count);
              }
+
            
-             //play some music
-            audioSource.PlayOneShot(radioTracks[trackToPlay]);
+            //play some music
+            audioSource.Play((ulong)trackToPlay);
 
         }
         else {
