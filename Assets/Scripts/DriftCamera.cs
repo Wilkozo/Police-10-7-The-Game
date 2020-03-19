@@ -20,6 +20,15 @@ public class DriftCamera : MonoBehaviour
 
     bool m_ShowingSideView;
 
+
+    public void enterCar(Transform lookTarget, Transform posTarget, Transform viewSide) {
+        Debug.Log("Got to where we needed to");
+        Debug.Log(lookTarget);
+        lookAtTarget = lookTarget;
+        positionTarget = posTarget;
+        sideView = viewSide;
+    }
+
     private void FixedUpdate ()
     {
         if(advancedOptions.updateCameraInFixedUpdate)

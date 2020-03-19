@@ -32,9 +32,17 @@ public class WheelDrive : MonoBehaviour
 
     private WheelCollider[] m_Wheels;
 
+    public bool PlayerDrivable;
+    public GameObject player;
+    public GameObject mainCam;
+    public GameObject drivingCam;
+
     // Find all the WheelColliders down in the hierarchy.
-	void Start()
+    void Start()
 	{
+        
+        mainCam = GameObject.Find("MainCam");
+        player = GameObject.Find("DrivingCam");
 		m_Wheels = GetComponentsInChildren<WheelCollider>();
 
 		for (int i = 0; i < m_Wheels.Length; ++i) 
@@ -48,62 +56,85 @@ public class WheelDrive : MonoBehaviour
 				ws.transform.parent = wheel.transform;
 			}
 		}
-	}
+        player = GameObject.Find("Player");
+    }
 
-	// This is a really simple approach to updating wheels.
-	// We simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero.
-	// This helps us to figure our which wheels are front ones and which are rear.
-	void Update()
-	{
-		m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
+    public void stopTheCar() {
 
-		float angle = maxAngle * Input.GetAxis("Horizontal");
-		float torque = maxTorque * Input.GetAxis("Vertical");
+        foreach (WheelCollider wheel in m_Wheels)
+        {
+            wheel.motorTorque = 1.0f;
+        }
+    }
 
-		float handBrake = Input.GetButton("Fire1") ? brakeTorque : 0;
+    // This is a really simple approach to updating wheels.
+    // We simulate a rear wheel drive car and assume that the car is perfectly symmetric at local zero.
+    // This helps us to figure our which wheels are front ones and which are rear.
+    void Update()
+    {
+        if (this.PlayerDrivable)
+        {
 
-		foreach (WheelCollider wheel in m_Wheels)
-		{
-			// A simple car where front wheels steer while rear ones drive.
-			if (wheel.transform.localPosition.z > 0)
-				wheel.steerAngle = angle;
+            m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
 
-			if (wheel.transform.localPosition.z < 0)
-			{
-				wheel.brakeTorque = handBrake;
-			}
+            float angle = maxAngle * Input.GetAxis("Horizontal");
+            float torque = maxTorque * Input.GetAxis("Vertical");
 
-			if (wheel.transform.localPosition.z < 0 && driveType != DriveType.FrontWheelDrive)
-			{
-				wheel.motorTorque = torque;
-			}
+            float handBrake = Input.GetButton("Handbrake") ? brakeTorque : 0;
 
-			if (wheel.transform.localPosition.z >= 0 && driveType != DriveType.RearWheelDrive)
-			{
-				wheel.motorTorque = torque;
-			}
+            foreach (WheelCollider wheel in m_Wheels)
+            {
+                // A simple car where front wheels steer while rear ones drive.
+                if (wheel.transform.localPosition.z > 0)
+                    wheel.steerAngle = angle;
 
-			// Update visual wheels if any.
-			if (wheelShape) 
-			{
-				Quaternion q;
-				Vector3 p;
-				wheel.GetWorldPose (out p, out q);
-
-				// Assume that the only child of the wheelcollider is the wheel shape.
-				Transform shapeTransform = wheel.transform.GetChild (0);
-
-                if (wheel.name == "a0l" || wheel.name == "a1l" || wheel.name == "a2l")
+                if (wheel.transform.localPosition.z < 0)
                 {
-                    shapeTransform.rotation = q * Quaternion.Euler(0, 180, 0);
-                    shapeTransform.position = p;
+                    wheel.brakeTorque = handBrake;
                 }
-                else
+
+                if (wheel.transform.localPosition.z < 0 && driveType != DriveType.FrontWheelDrive)
                 {
-                    shapeTransform.position = p;
-                    shapeTransform.rotation = q;
+                    wheel.motorTorque = torque;
                 }
-			}
-		}
-	}
+
+                if (wheel.transform.localPosition.z >= 0 && driveType != DriveType.RearWheelDrive)
+                {
+                    wheel.motorTorque = torque;
+                }
+
+                // Update visual wheels if any.
+                if (wheelShape)
+                {
+                    Quaternion q;
+                    Vector3 p;
+                    wheel.GetWorldPose(out p, out q);
+
+                    // Assume that the only child of the wheelcollider is the wheel shape.
+                    Transform shapeTransform = wheel.transform.GetChild(0);
+
+                    if (wheel.name == "a0l" || wheel.name == "a1l" || wheel.name == "a2l")
+                    {
+                        shapeTransform.rotation = q * Quaternion.Euler(0, 180, 0);
+                        shapeTransform.position = p;
+                    }
+                    else
+                    {
+                        shapeTransform.position = p;
+                        shapeTransform.rotation = q;
+                    }
+                }
+            }
+            //if (Input.GetButtonDown("ExitCar"))
+            //{
+
+            //    player.SetActive(true);
+            //    mainCam.SetActive(true);
+            //    drivingCam.SetActive(true);
+
+            //    PlayerDrivable = false;
+            //}
+        }
+      
+    }
 }
