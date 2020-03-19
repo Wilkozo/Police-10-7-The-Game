@@ -9,10 +9,12 @@ public class StealACar : MonoBehaviour
     //the car that should be stolen
     public GameObject carToSteal;
     public Text objectiveText;
+    public Image carToStealImage;
 
     private void Start()
     {
         objectiveText.enabled = false;
+        carToStealImage.enabled = false;
     }
 
 
@@ -25,6 +27,8 @@ public class StealACar : MonoBehaviour
             MissionManager.missionStart = true;
             //set the mission text
             objectiveText.enabled = true;
+            carToStealImage.enabled = true;
+            this.GetComponent<SphereCollider>().enabled = true;
         }
         //if they are then return
         else {
@@ -35,11 +39,19 @@ public class StealACar : MonoBehaviour
     //trigger collider
     private void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "Player") {
+            enableMission();
+            this.GetComponent<BoxCollider>().enabled = false;
+            this.GetComponent<BoxCollider>().enabled = false;
+        }
+
         //if the player collides with the building they are taking the car to
         if (other.gameObject == carToSteal) {
             //complete the mission
             MissionManager.missionEndSuccess();
             objectiveText.enabled = false;
+            carToStealImage.enabled = false;
+            this.GetComponent<SphereCollider>().enabled = false;
             //complete the mission
             //otherwise dont do anything
         }

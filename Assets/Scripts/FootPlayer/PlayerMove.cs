@@ -39,6 +39,7 @@ public class PlayerMove : MonoBehaviour
             //add code so the player can leave and enter cars
             this.gameObject.GetComponent<MeshRenderer>().enabled = true;
             this.gameObject.GetComponent<CharacterController>().enabled = true;
+            this.gameObject.GetComponent<BoxCollider>().enabled = true;
             this.transform.parent.GetComponentInChildren<WheelDrive>().PlayerDrivable = false;
 
             this.transform.parent.GetComponent<WheelDrive>().maxTorque = 0.0f;
@@ -80,6 +81,7 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.transform.parent = other.gameObject.transform;
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
             if (other.gameObject.GetComponent<NavMeshAgent>())
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
@@ -101,6 +103,7 @@ public class PlayerMove : MonoBehaviour
             //disable walking controls
             this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
+            this.gameObject.GetComponent<BoxCollider>().enabled = false;
             this.transform.parent = other.gameObject.transform;
             if (other.gameObject.GetComponent<NavMeshAgent>()) 
             {
