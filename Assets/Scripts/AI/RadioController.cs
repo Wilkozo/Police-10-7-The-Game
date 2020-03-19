@@ -23,6 +23,7 @@ public class RadioController : MonoBehaviour
         {
             radioTracks.Add(child.gameObject.transform.GetComponent<AudioSource>());
         }
+        audioSource = radioTracks[trackToPlay];
     }
 
     // Update is called once per frame
@@ -31,7 +32,8 @@ public class RadioController : MonoBehaviour
         //sets the radio to play if the player is in a car
         if (player.GetComponent<MeshRenderer>().enabled == false)
         {
-            audioSource = radioTracks[trackToPlay];
+            
+
             //if the audio source is not playing anything
             if (!audioSource.isPlaying)
              {
@@ -39,7 +41,7 @@ public class RadioController : MonoBehaviour
                 trackToPlay = Random.Range(0, radioTracks.Count);
              }
 
-           
+            audioSource = radioTracks[trackToPlay];
             //play some music
             audioSource.Play((ulong)trackToPlay);
 
