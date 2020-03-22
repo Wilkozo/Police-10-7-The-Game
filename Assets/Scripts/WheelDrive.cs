@@ -79,7 +79,7 @@ public class WheelDrive : MonoBehaviour
             m_Wheels[0].ConfigureVehicleSubsteps(criticalSpeed, stepsBelow, stepsAbove);
 
             float angle = maxAngle * Input.GetAxis("Horizontal");
-            float torque = maxTorque * Input.GetAxis("Vertical");
+            float torque = maxTorque * Input.GetAxis("VerticalCar");
 
             float handBrake = Input.GetButton("Handbrake") ? brakeTorque : 0;
 
