@@ -42,7 +42,7 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<BoxCollider>().enabled = true;
             this.transform.parent.GetComponentInChildren<WheelDrive>().PlayerDrivable = false;
 
-            this.transform.parent.GetComponent<WheelDrive>().maxTorque = 0.0f;
+            this.transform.parent.GetComponent<WheelDrive>().maxTorque = 300.0f;
             this.transform.parent = null;
         }
 
@@ -85,7 +85,7 @@ public class PlayerMove : MonoBehaviour
             if (other.gameObject.GetComponent<NavMeshAgent>())
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-                other.gameObject.GetComponent<BasicWander>().enabled = false;
+                other.gameObject.GetComponent<WaypointNavigator>().enabled = false;
                 this.transform.parent = other.gameObject.transform;
             }
 
@@ -108,7 +108,7 @@ public class PlayerMove : MonoBehaviour
             if (other.gameObject.GetComponent<NavMeshAgent>()) 
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
-                other.gameObject.GetComponent<BasicWander>().enabled = false;
+                other.gameObject.GetComponent<WaypointNavigator>().enabled = false;
                 this.transform.parent = other.gameObject.transform;
             }
             //this.transform.parent = other.gameObject.transform.Find("Car");

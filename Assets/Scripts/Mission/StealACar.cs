@@ -10,11 +10,13 @@ public class StealACar : MonoBehaviour
     public GameObject carToSteal;
     public Text objectiveText;
     public Image carToStealImage;
+    public Text StartMissionText;
 
     private void Start()
     {
         objectiveText.enabled = false;
         carToStealImage.enabled = false;
+        StartMissionText.enabled = false;
     }
 
 
@@ -23,6 +25,7 @@ public class StealACar : MonoBehaviour
         //checks to see if the player is already in a mission
         if (MissionManager.missionStart == false)
         {
+            StartMissionText.enabled = false;
             //set it so there is a mission
             MissionManager.missionStart = true;
             //set the mission text
@@ -35,25 +38,37 @@ public class StealACar : MonoBehaviour
             return;
         }
     }
-
-    //trigger collider
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player") {
+        if (other.tag == "Player" && Input.GetButtonDown("Interact"))
+        {
             enableMission();
             this.GetComponent<BoxCollider>().enabled = false;
             this.GetComponent<BoxCollider>().enabled = false;
         }
+    }
 
+    //trigger collider
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player") {
+            StartMissionText.enabled = false;
+        }
         //if the player collides with the building they are taking the car to
-        if (other.gameObject == carToSteal) {
+        if (other.gameObject == carToSteal && objectiveText.enabled == true) {
             //complete the mission
             MissionManager.missionEndSuccess();
             objectiveText.enabled = false;
             carToStealImage.enabled = false;
+            StartMissionText.enabled = false;
             this.GetComponent<SphereCollider>().enabled = false;
             //complete the mission
             //otherwise dont do anything
         }
+
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        StartMissionText.enabled = false;
     }
 }
