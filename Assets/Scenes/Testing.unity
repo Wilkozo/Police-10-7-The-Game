@@ -10467,14 +10467,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e03369147b03a40837fa7418ebe3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionStarted: 0
   missionTypeString: 
   endPos: {fileID: 0}
+  deliveryTimer: {fileID: 0}
   timeToReachEndPos: 0
   carToChase: {fileID: 0}
+  carToChaseImage: {fileID: 0}
   maxDistanceChase: 0
   carToTail: {fileID: 0}
+  carToTailImage: {fileID: 0}
   maxDistanceTailing: 0
   minDistance: 0
+  MissionSuccess: {fileID: 0}
+  MissionFailure: {fileID: 0}
 --- !u!4 &1519120035
 Transform:
   m_ObjectHideFlags: 0
