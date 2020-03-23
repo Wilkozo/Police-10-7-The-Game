@@ -8,51 +8,54 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
 
-    public static GameObject missionComplete;
-    private static bool missionStarted;
+    [Header("Know What Mission Type it is")]
+    public string missionTypeString;
+    
 
-    private void Start()
+    [Header("Used in Delivery mission")]
+    public GameObject endPos;
+    public float timeToReachEndPos;
+
+
+    [Header("Used in Car Chase mission")]
+    public GameObject carToChase;
+    public float maxDistanceChase;
+
+
+    [Header("Used in tailing mission")]
+    public GameObject carToTail;
+    public float maxDistanceTailing;
+    public float minDistance;
+
+    //what is the mission type
+    public void missionType(string mission) {
+
+        //If the mission is a tailing type
+        if (mission == "Tail a Car") {
+            missionTypeString = "Tail a Car";
+        }
+        //if the mission is a delivery type
+        if (mission == "Delivery") {
+            //set the string to be a delivery mission
+            missionTypeString = "Delivery";
+        }
+        //if the mission is a car chase type
+        if (mission == "CarChase"){
+            //set the string to car chase mission
+            missionTypeString = "CarChase";
+        }
+        //what to do in a custom mission
+        if (mission == "Custom") {
+            //set the string to custom mission
+            missionTypeString = "Custom";
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
-        missionComplete = GameObject.Find("MissionComplete");
-        missionComplete.SetActive(false);
-    }
-
-    public static bool missionStart
-    {
-        get
-        {
-            return missionStarted;
-        }
-        set
-        {
-            missionStarted = value;
+        //when a player finishes a Delivery mission
+        if (other.tag == "Player" && missionTypeString == "Delivery") {
+            
         }
     }
-
-    public static GameObject missionCompleteText
-    {
-        get
-        {
-            return missionComplete;
-        }
-        set
-        {
-            missionComplete = value;
-        }
-    }
-
-    //call this when a mission ends in success
-    static public void missionEndSuccess() {
-        //add dialogue saying that you completed the mission
-        missionStarted = false;
-        missionComplete.SetActive(true);
-    }
-
-
-    //call this when a mission ends in a failure
-    static public void missionEndFailure() {
-        missionComplete.SetActive(true);
-    }
-
-
 }

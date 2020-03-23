@@ -23,20 +23,20 @@ public class StealACar : MonoBehaviour
     //what to do when a trying to start the mission
     public void enableMission() {
         //checks to see if the player is already in a mission
-        if (MissionManager.missionStart == false)
-        {
+        //if (MissionManager.missionStart == false)
+        //{
             StartMissionText.enabled = false;
             //set it so there is a mission
-            MissionManager.missionStart = true;
+            //MissionManager.missionStart = true;
             //set the mission text
             objectiveText.enabled = true;
             carToStealImage.enabled = true;
             this.GetComponent<SphereCollider>().enabled = true;
-        }
+        //}
         //if they are then return
-        else {
-            return;
-        }
+        //else {
+        //    return;
+        //}
     }
     private void OnTriggerStay(Collider other)
     {
@@ -57,7 +57,7 @@ public class StealACar : MonoBehaviour
         //if the player collides with the building they are taking the car to
         if (other.gameObject == carToSteal && objectiveText.enabled == true) {
             //complete the mission
-            MissionManager.missionEndSuccess();
+           // MissionManager.missionEndSuccess();
             objectiveText.enabled = false;
             carToStealImage.enabled = false;
             StartMissionText.enabled = false;

@@ -19,20 +19,14 @@ public class TimerDrive : MonoBehaviour
     //what to do when a trying to start the mission
     public void enableMission()
     {
-        //checks to see if the player is already in a mission
-        if (MissionManager.missionStart == false)
-        {
+        ////checks to see if the player is already in a mission
+        //if (MissionManager.missionStart == false)
+        //{
             StartMissionText.enabled = false;
             //set it so there is a mission
-            MissionManager.missionStart = true;
+           // MissionManager.missionStart = true;
             //set the mission text
             objectiveText.enabled = true;
-        }
-        //if they are then return
-        else
-        {
-            return;
-        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -54,7 +48,7 @@ public class TimerDrive : MonoBehaviour
         if (objectiveText.enabled == true)
         {
             //complete the mission
-            MissionManager.missionEndSuccess();
+            //MissionManager.missionEndSuccess();
             objectiveText.enabled = false;
             StartMissionText.enabled = false;
             //complete the mission

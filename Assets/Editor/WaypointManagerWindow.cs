@@ -143,6 +143,7 @@ public class WaypointManagerWindow : EditorWindow
 
 
     void CreateWaypoint() {
+
         GameObject waypointObject = new GameObject("Waypoint " + waypointRoot.childCount, typeof(Waypoint));
         waypointObject.transform.SetParent(waypointRoot, false);
 
