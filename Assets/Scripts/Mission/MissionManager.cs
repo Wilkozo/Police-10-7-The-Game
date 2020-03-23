@@ -8,30 +8,49 @@ using UnityEngine;
 public class MissionManager : MonoBehaviour
 {
 
+    [Header("Whether a mission has been started or not")]
+    public bool missionStarted = false;
+
     [Header("Know What Mission Type it is")]
     public string missionTypeString;
     
 
     [Header("Used in Delivery mission")]
     public GameObject endPos;
+    public GameObject deliveryTimer;
     public float timeToReachEndPos;
 
 
     [Header("Used in Car Chase mission")]
     public GameObject carToChase;
+    public GameObject carToChaseImage;
     public float maxDistanceChase;
 
 
     [Header("Used in tailing mission")]
     public GameObject carToTail;
+    public GameObject carToTailImage;
     public float maxDistanceTailing;
     public float minDistance;
 
-    //Called Every Frame
-    private void Update(){
-        
-    }
+    [Header("Used for all")]
+    public GameObject MissionSuccess;
+    public GameObject MissionFailure;
 
+
+    private void Start()
+    {
+        //find the text and images
+        MissionSuccess = GameObject.Find("MissionSuccess");
+        MissionFailure = GameObject.Find("MissionFailure");
+        //set UI elements to false
+        carToChaseImage.SetActive(false);
+        carToTailImage.SetActive(false);
+        deliveryTimer.SetActive(false);
+        MissionSuccess.SetActive(false);
+        MissionFailure.SetActive(false);
+
+    }
     //what is the mission type
     public void missionType(string mission) {
 
@@ -56,15 +75,40 @@ public class MissionManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        //reduce the timer if the UI element is enabled
+        if (deliveryTimer.activeInHierarchy) {
+            timeToReachEndPos -= Time.deltaTime;
+            if (timeToReachEndPos <= 0) {
+                timeToReachEndPos = 0;
+                endDeliveryMission();
+            }
+        }
+    }
 
     //what to do when a delivery mission starts
     public void startDeliveryMission() {
-
+        //set it so the mission has been started
+        missionStarted = true;
+        //activate the delivery timer
+        deliveryTimer.SetActive(true);
     }
 
     //How and what to do when the delivery mission ends
     public void endDeliveryMission(){
-
+        //if the timer ran out 
+        if (timeToReachEndPos <= 0)
+        {
+            MissionFailure.SetActive(true);
+        }
+        //if the player got to the position in time
+        else {
+            MissionSuccess.SetActive(true);
+        }
+        //set it so there is no mission and there is no timer
+        missionStarted = false;
+        deliveryTimer.SetActive(false);
     }
 
 
@@ -92,6 +136,4 @@ public class MissionManager : MonoBehaviour
     {
 
     }
-
-
 }

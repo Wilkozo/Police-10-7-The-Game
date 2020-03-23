@@ -17,7 +17,7 @@ public class MissionGiver : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         //how to start a mission, player pushes interact and is within the trigger box
-        if (other.tag == "Player" && Input.GetButtonDown("Interact")) {
+        if (other.tag == "Player" && Input.GetButtonDown("Interact") && MissionMan.missionStarted == false) {
 
             //delivery mission start
             if (MissionMan.missionTypeString == "Delivery") {

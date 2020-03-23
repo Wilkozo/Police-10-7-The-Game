@@ -104,6 +104,11 @@ public class MissionManagerWindow : EditorWindow {
         MissionManager mission = MissionObjective.GetComponent<MissionManager>();
         Selection.activeGameObject = mission.gameObject;
 
+
+        //creating the Tailing Car StartPos Object
+        GameObject positionToGetTo = new GameObject("Tailing Car Goes Here " + MissionObjective.transform.childCount);
+        positionToGetTo.transform.SetParent(MissionObjective.transform, false);
+
         //creating the Mission Giver object
         GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
         missionGiver.transform.SetParent(MissionObjective.transform, false);
