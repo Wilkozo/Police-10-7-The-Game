@@ -27,6 +27,11 @@ public class MissionManager : MonoBehaviour
     public float maxDistanceTailing;
     public float minDistance;
 
+    //Called Every Frame
+    private void Update(){
+        
+    }
+
     //what is the mission type
     public void missionType(string mission) {
 
@@ -51,11 +56,42 @@ public class MissionManager : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        //when a player finishes a Delivery mission
-        if (other.tag == "Player" && missionTypeString == "Delivery") {
-            
-        }
+
+    //what to do when a delivery mission starts
+    public void startDeliveryMission() {
+
     }
+
+    //How and what to do when the delivery mission ends
+    public void endDeliveryMission(){
+
+    }
+
+
+    //what to do when a tailing mission starts
+    public void startTailingMission()
+    {
+
+    }
+
+    //How and what to do when the tailing mission ends
+    public void endTailingMission()
+    {
+
+    }
+
+
+    //what to do when a car chase mission starts
+    public void startCarChaseMission()
+    {
+
+    }
+
+    //How and what to do when the car chase mission ends
+    public void endCarChaseMission()
+    {
+
+    }
+
+
 }

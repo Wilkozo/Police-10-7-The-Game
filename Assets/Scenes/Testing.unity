@@ -10467,6 +10467,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e03369147b03a40837fa7418ebe3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  missionTypeString: 
+  endPos: {fileID: 0}
+  timeToReachEndPos: 0
+  carToChase: {fileID: 0}
+  maxDistanceChase: 0
+  carToTail: {fileID: 0}
+  maxDistanceTailing: 0
+  minDistance: 0
 --- !u!4 &1519120035
 Transform:
   m_ObjectHideFlags: 0
@@ -15322,7 +15330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousWaypoint: {fileID: 0}
-  nextWaypoint: {fileID: 376264546}
+  nextWaypoint: {fileID: 0}
   width: 1
   branches: []
   branchRatio: 0.5

@@ -76,7 +76,14 @@ public class MissionManagerWindow : EditorWindow {
         //creating the end position object
         GameObject positionToGetTo = new GameObject("PositionToGetTo " + MissionObjective.transform.childCount);
         positionToGetTo.transform.SetParent(MissionObjective.transform, false);
+        //sets a trigger box on the empty end pos
         positionToGetTo.AddComponent<BoxCollider>().isTrigger = true;
+
+        //creating the Mission Giver object
+        GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
+        missionGiver.transform.SetParent(MissionObjective.transform, false);
+        //sets a trigger box on the empty end pos
+        missionGiver.AddComponent<BoxCollider>().isTrigger = true;
 
         //sets the mission type
         mission.missionType("Delivery");
@@ -97,6 +104,12 @@ public class MissionManagerWindow : EditorWindow {
         MissionManager mission = MissionObjective.GetComponent<MissionManager>();
         Selection.activeGameObject = mission.gameObject;
 
+        //creating the Mission Giver object
+        GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
+        missionGiver.transform.SetParent(MissionObjective.transform, false);
+        //sets a trigger box on the empty end pos
+        missionGiver.AddComponent<BoxCollider>().isTrigger = true;
+
         //sets the mission type
         mission.missionType("Tail a Car");
     }
@@ -109,6 +122,12 @@ public class MissionManagerWindow : EditorWindow {
         MissionObjective.transform.SetParent(missionRoot, false);
         MissionManager mission = MissionObjective.GetComponent<MissionManager>();
         Selection.activeGameObject = mission.gameObject;
+
+        //creating the Mission Giver object
+        GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
+        missionGiver.transform.SetParent(MissionObjective.transform, false);
+        //sets a trigger box on the empty end pos
+        missionGiver.AddComponent<BoxCollider>().isTrigger = true;
 
         //sets the mission type
         mission.missionType("CarChase");
