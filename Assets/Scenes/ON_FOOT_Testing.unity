@@ -292,7 +292,7 @@ MonoBehaviour:
   BulletStart: {fileID: 1845858269}
   ShotObject: {fileID: 4594597738889274269, guid: a7dd832d29c5dd74fa02fec5bb473f47,
     type: 3}
-  ShotForce: 25
+  ShotForce: 60000
 --- !u!4 &25212811 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000014014178478, guid: 6577377bae7db18429e690f8f8f57881,
@@ -4532,7 +4532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845858268}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.637, y: 0, z: 0.987}
+  m_LocalPosition: {x: 0.637, y: 0.6, z: 2.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2119130368}

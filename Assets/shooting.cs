@@ -25,9 +25,9 @@ public class shooting : MonoBehaviour
         // Gets the instance of the specific shot...
         GameObject Bullet = Instantiate(ShotObject, BulletStart.position, BulletStart.rotation);
 
-        Rigidbody2D rb = Bullet.GetComponent<Rigidbody2D>();
+        Rigidbody rb = Bullet.GetComponent<Rigidbody>();
         // Adds Impulse to the shot
-        rb.AddForce(BulletStart.up * ShotForce, ForceMode2D.Impulse);
+        rb.AddForce(BulletStart.up * ShotForce * Time.deltaTime);
 
     }
 }

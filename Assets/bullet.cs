@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class bullet : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.tag != "bullet" || other.tag == "Player") {
+            Destroy(this.gameObject);
+        }    
     }
 
 }
