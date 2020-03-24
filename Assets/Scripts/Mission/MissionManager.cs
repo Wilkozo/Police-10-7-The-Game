@@ -111,7 +111,7 @@ public class MissionManager : MonoBehaviour
         //Tailing Mission
         if (missionTypeString == "Tail a Car") {
             //get the distance from the tailing car and the player
-            float distanceFromTail = Vector3.Distance(carToChase.transform.position, Player.transform.position);
+            float distanceFromTail = Vector3.Distance(carToTail.transform.position, Player.transform.position);
             
             //if the player is too close or too far fail the mission
             if (distanceFromTail > maxDistanceTailing || distanceFromTail < minDistance) {

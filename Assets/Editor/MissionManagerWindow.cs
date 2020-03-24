@@ -79,12 +79,16 @@ public class MissionManagerWindow : EditorWindow {
         positionToGetTo.transform.SetParent(MissionObjective.transform, false);
         //sets a trigger box on the empty end pos
         positionToGetTo.AddComponent<BoxCollider>().isTrigger = true;
+        //sets it to the ignore raycast layer
+        positionToGetTo.layer = 2;
 
         //creating the Mission Giver object
         GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
         missionGiver.transform.SetParent(MissionObjective.transform, false);
         //sets a trigger box on the empty end pos
         missionGiver.AddComponent<BoxCollider>().isTrigger = true;
+        //sets it to the ignore raycast layer
+        missionGiver.layer = 2;
 
         //sets the mission type
         mission.missionType("Delivery");
@@ -113,6 +117,8 @@ public class MissionManagerWindow : EditorWindow {
         missionGiver.transform.SetParent(MissionObjective.transform, false);
         //sets a trigger box on the empty end pos
         missionGiver.AddComponent<BoxCollider>().isTrigger = true;
+        //sets it to the ignore raycast layer
+        missionGiver.layer = 2;
 
         //sets the mission type
         mission.missionType("Tail a Car");
