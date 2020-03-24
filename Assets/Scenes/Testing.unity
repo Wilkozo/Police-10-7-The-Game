@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 612243}
   currentWaypoint: {fileID: 1114512332}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!195 &612243
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1342,7 +1342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 187225202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.35, y: -7.11, z: -51.3}
+  m_LocalPosition: {x: 8.35, y: -7.11, z: 18}
   m_LocalScale: {x: 5, y: 15, z: 5}
   m_Children: []
   m_Father: {fileID: 1067744235}
@@ -3108,7 +3108,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -5.91
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
@@ -3118,7 +3118,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 48.27
+      value: 24.56
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
@@ -3128,7 +3128,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
@@ -3138,7 +3138,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
@@ -3153,7 +3153,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
         type: 3}
@@ -3200,10 +3200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dc38f381fb9a74e956391d2a2be591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carToSteal: {fileID: 1100598265}
-  objectiveText: {fileID: 1656040397}
-  carToStealImage: {fileID: 2034528666}
-  StartMissionText: {fileID: 1705074412}
 --- !u!135 &466753851
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4016,7 +4012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 514831911}
   currentWaypoint: {fileID: 827959782}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!1 &524533119
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,7 +4592,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 556884555}
   currentWaypoint: {fileID: 1802784963}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!1001 &565874632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4759,36 +4755,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 545102039}
   m_RootOrder: 56
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &585630703
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 585630704}
-  m_Layer: 2
-  m_Name: Tailing Car Goes Here 0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &585630704
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 585630703}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2009973506}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &588040235
 GameObject:
@@ -5143,7 +5109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 590792664}
   currentWaypoint: {fileID: 827959782}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!1 &608204870
 GameObject:
   m_ObjectHideFlags: 0
@@ -5608,7 +5574,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 672391531}
   currentWaypoint: {fileID: 827959782}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!1001 &674261355
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5937,6 +5903,64 @@ Transform:
   m_Father: {fileID: 1282518360}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &701222344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 701222345}
+  - component: {fileID: 701222347}
+  - component: {fileID: 701222346}
+  m_Layer: 2
+  m_Name: Mission Giver Delivery 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &701222345
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701222344}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1238807144}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &701222346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701222344}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &701222347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 701222344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b977e1018c6e1b6499c0d1055d43a60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MissionMan: {fileID: 0}
 --- !u!1 &704627678
 GameObject:
   m_ObjectHideFlags: 0
@@ -6502,10 +6526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dc38f381fb9a74e956391d2a2be591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carToSteal: {fileID: 1100598265}
-  objectiveText: {fileID: 1656040397}
-  carToStealImage: {fileID: 2034528666}
-  StartMissionText: {fileID: 1705074412}
 --- !u!65 &833576981
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6966,7 +6986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 855990158}
   currentWaypoint: {fileID: 1802784963}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!1 &870313174
 GameObject:
   m_ObjectHideFlags: 0
@@ -7053,7 +7073,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 879525444}
   currentWaypoint: {fileID: 1114512332}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!195 &879525444
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -7400,10 +7420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dc38f381fb9a74e956391d2a2be591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carToSteal: {fileID: 0}
-  objectiveText: {fileID: 0}
-  carToStealImage: {fileID: 0}
-  StartMissionText: {fileID: 0}
 --- !u!65 &962017167
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7506,7 +7522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 983142973}
   currentWaypoint: {fileID: 1114512332}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!114 &983142975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8190,6 +8206,7 @@ MonoBehaviour:
   maxDistanceChase: 0
   carToTail: {fileID: 0}
   carToTailImage: {fileID: 0}
+  basePos: {fileID: 0}
   maxDistanceTailing: 0
   minDistance: 0
   MissionSuccess: {fileID: 0}
@@ -8325,12 +8342,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1100598265 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 438545073705395993, guid: 0fb9c5508a781c241ba770b318c9eef9,
-    type: 3}
-  m_PrefabInstance: {fileID: 438410377510828884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1100598270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 440154397807307181, guid: 0fb9c5508a781c241ba770b318c9eef9,
@@ -9000,6 +9011,70 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21beec5a86d83cb4e84b28f0ce567cd8, type: 3}
+--- !u!1 &1238807143
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1238807144}
+  - component: {fileID: 1238807145}
+  m_Layer: 0
+  m_Name: Delivery Mission 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1238807144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238807143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1677605435}
+  - {fileID: 701222345}
+  m_Father: {fileID: 1746253743}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1238807145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1238807143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e03369147b03a40837fa7418ebe3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionStarted: 0
+  missionTypeString: Delivery
+  endPos: {fileID: 1677605434}
+  deliveryTimer: {fileID: 0}
+  timeToReachEndPos: 20
+  timeToReachEndPosOG: 0
+  carToChase: {fileID: 0}
+  carToChaseImage: {fileID: 0}
+  maxDistanceChase: 0
+  carToTail: {fileID: 0}
+  carToTailImage: {fileID: 0}
+  basePos: {fileID: 0}
+  maxDistanceTailing: 0
+  minDistance: 0
+  MissionSuccess: {fileID: 0}
+  MissionFailure: {fileID: 0}
+  MissionStart: {fileID: 0}
+  ObjectiveText: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!1001 &1248391313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9494,7 +9569,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1283090420}
   currentWaypoint: {fileID: 1114512332}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!4 &1283090426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 440154397807307181, guid: 0fb9c5508a781c241ba770b318c9eef9,
@@ -9787,10 +9862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39dc38f381fb9a74e956391d2a2be591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carToSteal: {fileID: 0}
-  objectiveText: {fileID: 0}
-  carToStealImage: {fileID: 0}
-  StartMissionText: {fileID: 0}
 --- !u!1 &1310103245
 GameObject:
   m_ObjectHideFlags: 0
@@ -10195,64 +10266,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1328548716
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1328548717}
-  - component: {fileID: 1328548719}
-  - component: {fileID: 1328548718}
-  m_Layer: 2
-  m_Name: Mission Giver Tailing 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1328548717
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328548716}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.73, y: -11.95, z: 11.84}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2009973506}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1328548718
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328548716}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5, y: 15, z: 5}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1328548719
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1328548716}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b977e1018c6e1b6499c0d1055d43a60d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MissionMan: {fileID: 0}
 --- !u!1001 &1330726731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12407,7 +12420,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 1634915226}
   currentWaypoint: {fileID: 1802784963}
-  manager: {fileID: 0}
+  missionComplete: 0
 --- !u!1001 &1640381280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12850,6 +12863,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923e1aac0e2c8d44491a57ca8e9ac31c, type: 3}
+--- !u!1 &1677605434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1677605435}
+  - component: {fileID: 1677605437}
+  - component: {fileID: 1677605436}
+  m_Layer: 2
+  m_Name: PositionToGetTo 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1677605435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677605434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1238807144}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1677605436
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677605434}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1677605437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677605434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c083b3bbb427a4295ead1050160220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1683671286
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13620,7 +13690,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1067744235}
-  - {fileID: 2009973506}
+  - {fileID: 1238807144}
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -15191,69 +15261,6 @@ Transform:
   m_Father: {fileID: 545102039}
   m_RootOrder: 55
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2009973505
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2009973506}
-  - component: {fileID: 2009973507}
-  m_Layer: 2
-  m_Name: Tailing Mission 1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2009973506
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009973505}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 585630704}
-  - {fileID: 1328548717}
-  m_Father: {fileID: 1746253743}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2009973507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2009973505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23e03369147b03a40837fa7418ebe3ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  missionStarted: 0
-  missionTypeString: Tail a Car
-  endPos: {fileID: 0}
-  deliveryTimer: {fileID: 0}
-  timeToReachEndPos: 20
-  timeToReachEndPosOG: 0
-  carToChase: {fileID: 0}
-  carToChaseImage: {fileID: 0}
-  maxDistanceChase: 0
-  carToTail: {fileID: 0}
-  carToTailImage: {fileID: 0}
-  maxDistanceTailing: 0
-  minDistance: 0
-  MissionSuccess: {fileID: 0}
-  MissionFailure: {fileID: 0}
-  MissionStart: {fileID: 0}
-  ObjectiveText: {fileID: 0}
-  Player: {fileID: 0}
 --- !u!1001 &2020819732
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16708,7 +16715,7 @@ PrefabInstance:
     - target: {fileID: 6487409675077723671, guid: f7f6df884f89e2e4fa0521c720448852,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.5
+      value: 7.7
       objectReference: {fileID: 0}
     - target: {fileID: 6487409675077723671, guid: f7f6df884f89e2e4fa0521c720448852,
         type: 3}
@@ -16718,7 +16725,7 @@ PrefabInstance:
     - target: {fileID: 6487409675077723671, guid: f7f6df884f89e2e4fa0521c720448852,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.05
+      value: 72.5
       objectReference: {fileID: 0}
     - target: {fileID: 6487409675077723671, guid: f7f6df884f89e2e4fa0521c720448852,
         type: 3}

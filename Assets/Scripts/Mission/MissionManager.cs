@@ -32,6 +32,7 @@ public class MissionManager : MonoBehaviour
     [Header("Used in tailing mission")]
     public GameObject carToTail;
     public GameObject carToTailImage;
+    public GameObject basePos;
     public float maxDistanceTailing;
     public float minDistance;
 
@@ -42,10 +43,13 @@ public class MissionManager : MonoBehaviour
     public GameObject ObjectiveText;
     public GameObject Player;
 
+    private WaypointNavigator navigator;
+
     #endregion
 
     private void Start()
     {
+
         timeToReachEndPosOG = timeToReachEndPos;
 
         //find the text and images
@@ -55,17 +59,28 @@ public class MissionManager : MonoBehaviour
         MissionStart = GameObject.Find("MissionStart");
         deliveryTimer = GameObject.Find("DeliveryTimer");
         ObjectiveText = GameObject.Find("ObjectiveText");
-       
+
+        navigator = this.GetComponentInChildren<WaypointNavigator>();
+
+        StartCoroutine(LateStart(0.1f));
+    }
+
+    //makes it so all the components can be found
+    IEnumerator LateStart(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        //Your Function You Want to Call
         //set UI elements to false
         //carToChaseImage.SetActive(false);
         //carToTailImage.SetActive(false);
         deliveryTimer.SetActive(false);
         MissionSuccess.SetActive(false);
         MissionFailure.SetActive(false);
+        MissionFailure.SetActive(false);
         MissionStart.SetActive(false);
         ObjectiveText.SetActive(false);
-
     }
+ 
     //what is the mission type
     public void missionType(string mission) {
 
@@ -107,18 +122,10 @@ public class MissionManager : MonoBehaviour
             }
         }
 
-
-        //Tailing Mission
-        if (missionTypeString == "Tail a Car") {
-            //get the distance from the tailing car and the player
-            float distanceFromTail = Vector3.Distance(carToTail.transform.position, Player.transform.position);
-            
-            //if the player is too close or too far fail the mission
-            if (distanceFromTail > maxDistanceTailing || distanceFromTail < minDistance) {
-                //false for failure
-                endTailingMission(false);
+        if (missionStarted && carToTailImage.activeInHierarchy) {
+            if (navigator.checkMissionComplete()){
+                endTailingMission(true);
             }
-            //the success for this mission is kept in the WaypointNavigator Script
         }
     }
 
@@ -165,11 +172,13 @@ public class MissionManager : MonoBehaviour
     {
         //set it so there is a mission
         missionStarted = true;
+        //start the AI car moving
+        navigator.enableNavAgent();
         //change the objective text
+        ObjectiveText.SetActive(true);
         ObjectiveText.GetComponent<Text>().text = "Tail the car, just don't get too close";
         //set the image of the car that should be tailed
-        carToTailImage.SetActive(true);
-
+        //carToTailImage.SetActive(true);
     }
 
     //How and what to do when the tailing mission ends
@@ -183,13 +192,16 @@ public class MissionManager : MonoBehaviour
             //set the objective text to false
             ObjectiveText.SetActive(false);
             //destroy this gameobject
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
         }
         else {
             //set the mission failure text to true
             MissionFailure.SetActive(true);
             //set the objective text to false
             ObjectiveText.SetActive(false);
+            //set the car back to it's original position
+            carToTail.transform.position = basePos.transform.position;
+            carToTail.transform.rotation = basePos.transform.rotation;
         }
         //set it so there is no active mission
         missionStarted = false;

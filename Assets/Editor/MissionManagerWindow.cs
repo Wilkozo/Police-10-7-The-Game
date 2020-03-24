@@ -108,9 +108,17 @@ public class MissionManagerWindow : EditorWindow {
         Selection.activeGameObject = mission.gameObject;
 
 
-        //creating the Tailing Car StartPos Object
-        GameObject positionToGetTo = new GameObject("Tailing Car Goes Here " + MissionObjective.transform.childCount);
-        positionToGetTo.transform.SetParent(MissionObjective.transform, false);
+        //creating the Tailing Car Object
+        GameObject carToTail = new GameObject("Child this to the tailing car" + MissionObjective.transform.childCount, typeof(TailingDistance));
+        carToTail.transform.SetParent(MissionObjective.transform, false);
+        
+        //create a waypoint empty to work with the waypoint system
+        GameObject waypointsTailing = new GameObject("Tailing Waypoints");
+        waypointsTailing.transform.SetParent(MissionObjective.transform, false);
+
+        //set the base position for the car to respawn to once it fails
+        GameObject BasePos = new GameObject("StartPosForCar");
+        BasePos.transform.SetParent(MissionObjective.transform, false);
 
         //creating the Mission Giver object
         GameObject missionGiver = new GameObject("Mission Giver Tailing " + MissionObjective.transform.childCount, typeof(MissionGiver));
@@ -120,6 +128,8 @@ public class MissionManagerWindow : EditorWindow {
         //sets it to the ignore raycast layer
         missionGiver.layer = 2;
 
+        mission.basePos = BasePos;
+        mission.carToTail = carToTail;
         //sets the mission type
         mission.missionType("Tail a Car");
     }
