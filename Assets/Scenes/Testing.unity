@@ -184,6 +184,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!1 &4951749 stripped
 GameObject:
@@ -1324,7 +1327,7 @@ GameObject:
   - component: {fileID: 187225203}
   - component: {fileID: 187225205}
   - component: {fileID: 187225204}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PositionToGetTo 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3973,6 +3976,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &514831911
 NavMeshAgent:
@@ -4550,6 +4556,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &556884555
 NavMeshAgent:
@@ -4760,7 +4769,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 585630704}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tailing Car Goes Here 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5094,6 +5103,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &590792664
 NavMeshAgent:
@@ -5556,6 +5568,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &672391531
 NavMeshAgent:
@@ -6911,6 +6926,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &855990158
 NavMeshAgent:
@@ -7017,6 +7035,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!114 &879525443
 MonoBehaviour:
@@ -7144,7 +7165,7 @@ GameObject:
   - component: {fileID: 922565529}
   - component: {fileID: 922565531}
   - component: {fileID: 922565530}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mission Giver Delivery 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7256,7 +7277,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!64 &939427151
 MeshCollider:
@@ -7350,8 +7371,8 @@ GameObject:
   m_Name: Cube (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &962017165
 Transform:
@@ -7500,6 +7521,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!1 &987691343
 GameObject:
@@ -7985,8 +8009,8 @@ GameObject:
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!65 &1063041627
 BoxCollider:
@@ -8120,7 +8144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1067744235}
   - component: {fileID: 1067744236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Delivery Mission 0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9430,6 +9454,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &1283090420
 NavMeshAgent:
@@ -9671,8 +9698,8 @@ GameObject:
   m_Name: Cube (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1307501975
 Transform:
@@ -10179,7 +10206,7 @@ GameObject:
   - component: {fileID: 1328548717}
   - component: {fileID: 1328548719}
   - component: {fileID: 1328548718}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mission Giver Tailing 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10332,8 +10359,8 @@ GameObject:
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1352987815
 Transform:
@@ -10792,8 +10819,8 @@ GameObject:
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1424738644
 Transform:
@@ -12340,6 +12367,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Played: 0
   speed: 0
+  myLayerMask:
+    serializedVersion: 2
+    m_Bits: 819
   viewLength: 5
 --- !u!195 &1634915226
 NavMeshAgent:
@@ -13425,8 +13455,8 @@ GameObject:
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1733009392
 Transform:
@@ -13571,7 +13601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1746253743}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: MissionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14314,8 +14344,8 @@ GameObject:
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1888760642
 Transform:
@@ -15171,7 +15201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2009973506}
   - component: {fileID: 2009973507}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tailing Mission 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
