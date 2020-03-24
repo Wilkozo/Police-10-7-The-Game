@@ -33,6 +33,7 @@ public class MissionManager : MonoBehaviour
     public GameObject carToTail;
     public GameObject carToTailImage;
     public GameObject basePos;
+    public Waypoint StartWaypoint;
     public float maxDistanceTailing;
     public float minDistance;
 
@@ -72,7 +73,7 @@ public class MissionManager : MonoBehaviour
         //Your Function You Want to Call
         //set UI elements to false
         //carToChaseImage.SetActive(false);
-        //carToTailImage.SetActive(false);
+        carToTailImage.SetActive(false);
         deliveryTimer.SetActive(false);
         MissionSuccess.SetActive(false);
         MissionFailure.SetActive(false);
@@ -178,7 +179,7 @@ public class MissionManager : MonoBehaviour
         ObjectiveText.SetActive(true);
         ObjectiveText.GetComponent<Text>().text = "Tail the car, just don't get too close";
         //set the image of the car that should be tailed
-        //carToTailImage.SetActive(true);
+        carToTailImage.SetActive(true);
     }
 
     //How and what to do when the tailing mission ends
@@ -199,9 +200,10 @@ public class MissionManager : MonoBehaviour
             MissionFailure.SetActive(true);
             //set the objective text to false
             ObjectiveText.SetActive(false);
-            //set the car back to it's original position
-            carToTail.transform.position = basePos.transform.position;
-            carToTail.transform.rotation = basePos.transform.rotation;
+            //disable the image for the car to tail
+            carToTailImage.SetActive(false);
+            //reset the tag so the player can enter the car again
+            carToTail.tag = "Car";
         }
         //set it so there is no active mission
         missionStarted = false;
