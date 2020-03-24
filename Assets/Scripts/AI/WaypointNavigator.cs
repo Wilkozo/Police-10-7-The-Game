@@ -9,12 +9,16 @@ public class WaypointNavigator : MonoBehaviour
     public NavMeshAgent controller;
     public Waypoint currentWaypoint;
 
+    public MissionManager manager;
+
 
     private void Awake()
     {
         controller.autoBraking = true;
         controller = GetComponent<NavMeshAgent>();
         controller.destination = currentWaypoint.GetPosition();
+        //find the mission manager
+        manager = GameObject.Find("MissionManager").GetComponent<MissionManager>();
     }
 
     // Start is called before the first frame update
@@ -37,6 +41,13 @@ public class WaypointNavigator : MonoBehaviour
             else
             {
                 currentWaypoint = currentWaypoint.nextWaypoint;
+            }
+            //if there is no waypoints remaining
+            if (currentWaypoint.nextWaypoint == null) {
+                //set it so the navmesh agent does not move
+                controller.velocity = Vector3.zero;
+                //if the car is for a tailing mission set it so the mission is complete
+                manager.endTailingMission(true);
             }
             controller.destination = currentWaypoint.GetPosition();
         }

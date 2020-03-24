@@ -7,6 +7,7 @@ using UnityEngine;
 //this is a manager class in which holds what to do when a mission starts and when it ends
 public class MissionManager : MonoBehaviour
 {
+    #region variables
 
     [Header("Whether a mission has been started or not")]
     public bool missionStarted = false;
@@ -39,18 +40,22 @@ public class MissionManager : MonoBehaviour
     public GameObject MissionFailure;
     public GameObject MissionStart;
     public GameObject ObjectiveText;
+    public GameObject Player;
 
+    #endregion
 
     private void Start()
     {
         timeToReachEndPosOG = timeToReachEndPos;
 
         //find the text and images
+        Player = GameObject.FindGameObjectWithTag("Player");
         MissionSuccess = GameObject.Find("MissionSuccess");
         MissionFailure = GameObject.Find("MissionFailure");
         MissionStart = GameObject.Find("MissionStart");
         deliveryTimer = GameObject.Find("DeliveryTimer");
         ObjectiveText = GameObject.Find("ObjectiveText");
+       
         //set UI elements to false
         //carToChaseImage.SetActive(false);
         //carToTailImage.SetActive(false);
@@ -87,16 +92,37 @@ public class MissionManager : MonoBehaviour
 
     private void Update()
     {
+
+        //Delivery Mission
         //reduce the timer if the UI element is enabled
         if (deliveryTimer.activeInHierarchy) {
-            deliveryTimer.GetComponent<Text>().text = "Time Remaining: " + timeToReachEndPos.ToString("F2");
+            //set the time remaining to 0 decimal places
+            deliveryTimer.GetComponent<Text>().text = "Time Remaining: " + timeToReachEndPos.ToString("F0");
+            //reduce the time remaining
             timeToReachEndPos -= Time.deltaTime;
+            //if the time = 0 then set the time to 0 and fail the mission
             if (timeToReachEndPos <= 0) {
                 timeToReachEndPos = 0;
                 endDeliveryMission();
             }
         }
+
+
+        //Tailing Mission
+        if (missionTypeString == "Tail a Car") {
+            //get the distance from the tailing car and the player
+            float distanceFromTail = Vector3.Distance(carToChase.transform.position, Player.transform.position);
+            
+            //if the player is too close or too far fail the mission
+            if (distanceFromTail > maxDistanceTailing || distanceFromTail < minDistance) {
+                //false for failure
+                endTailingMission(false);
+            }
+            //the success for this mission is kept in the WaypointNavigator Script
+        }
     }
+
+    #region DeliveryMission
 
     //what to do when a delivery mission starts
     public void startDeliveryMission() {
@@ -132,17 +158,41 @@ public class MissionManager : MonoBehaviour
         deliveryTimer.SetActive(false);
     }
 
+    #endregion
 
     //what to do when a tailing mission starts
     public void startTailingMission()
     {
+        //set it so there is a mission
+        missionStarted = true;
+        //change the objective text
+        ObjectiveText.GetComponent<Text>().text = "Tail the car, just don't get too close";
+        //set the image of the car that should be tailed
+        carToTailImage.SetActive(true);
 
     }
 
     //How and what to do when the tailing mission ends
-    public void endTailingMission()
+    public void endTailingMission(bool success)
     {
-
+        //if the player completes the mission
+        if (success)
+        {
+            //set the mission success text to true
+            MissionSuccess.SetActive(true);
+            //set the objective text to false
+            ObjectiveText.SetActive(false);
+            //destroy this gameobject
+            Destroy(this.gameObject);
+        }
+        else {
+            //set the mission failure text to true
+            MissionFailure.SetActive(true);
+            //set the objective text to false
+            ObjectiveText.SetActive(false);
+        }
+        //set it so there is no active mission
+        missionStarted = false;
     }
 
 

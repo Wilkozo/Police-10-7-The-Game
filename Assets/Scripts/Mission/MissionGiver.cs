@@ -30,11 +30,13 @@ public class MissionGiver : MonoBehaviour
                 //car chase mission start
                 if (MissionMan.missionTypeString == "CarChase")
                 {
+                    MissionMan.MissionStart.SetActive(false);
                     MissionMan.startCarChaseMission();
                 }
                 //tail a car mission start
                 if (MissionMan.missionTypeString == "Tail a Car")
                 {
+                    MissionMan.MissionStart.SetActive(false);
                     MissionMan.startTailingMission();
                 }
             }
