@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class PlayerMove : MonoBehaviour
 {
-
+    // Movement Speed
     public float speed = 7.5f;
     public Transform playerCameraParent;
     public float lookSpeed = 2.0f;
@@ -22,6 +22,8 @@ public class PlayerMove : MonoBehaviour
     public bool isActive = true;
     public Camera mainCam;
     public Camera drivingCam;
+
+    Vector3 MousePos;
 
     public float gravity = 10;
 
@@ -49,26 +51,40 @@ public class PlayerMove : MonoBehaviour
         //various movement settings
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         Vector3 right = transform.TransformDirection(Vector3.right);
+        // X & Y Movement Variables
         float curSpeedX = canMove ? speed * Input.GetAxis("Vertical") : 0;
         float curSpeedY = canMove ? speed * Input.GetAxis("Horizontal") : 0;
+
+        // Applying X & Y to one direction...
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
 
+        // Gravity
         moveDirection.y -= gravity * Time.deltaTime;
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
 
-        // Player and Camera rotation
+        // Mouse Position... (Twinstick will come up later)
+        MousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
+
+
         if (canMove)
         {
+            // Vector3 lookDirection = MousePos - this.gameObject.transform.position;
+            // float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg - 90f;
+
+            //this.gameObject.transform.localRotation = Quaternion.Euler(lookDirection.x, 0, 0);
+            // transform.eulerAngles = new Vector2(0, angle);
+
+
+            // Player and Camera rotation
             rotation.y += Input.GetAxis("Mouse X") * lookSpeed;
             rotation.x += -Input.GetAxis("Mouse Y") * lookSpeed;
             rotation.x = Mathf.Clamp(rotation.x, -lookXLimit, lookXLimit);
-           this.gameObject.transform.localRotation = Quaternion.Euler(rotation.x, 0, 0);
+            this.gameObject.transform.localRotation = Quaternion.Euler(rotation.x, 0, 0);
             transform.eulerAngles = new Vector2(0, rotation.y);
         }
     }
-
 
     private void OnTriggerStay(Collider other)
     {
@@ -90,7 +106,7 @@ public class PlayerMove : MonoBehaviour
             }
 
         }
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -105,7 +121,7 @@ public class PlayerMove : MonoBehaviour
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             this.transform.parent = other.gameObject.transform;
-            if (other.gameObject.GetComponent<NavMeshAgent>()) 
+            if (other.gameObject.GetComponent<NavMeshAgent>())
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
                 other.gameObject.GetComponent<WaypointNavigator>().enabled = false;
@@ -116,8 +132,10 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+
     //when the player leaves the climbable zone
-    private void OnTriggerExit(Collider other)
-    {
-    }
+    //   private void OnTriggerExit(Collider other)
+    //   {
+    //   }
+
 }
