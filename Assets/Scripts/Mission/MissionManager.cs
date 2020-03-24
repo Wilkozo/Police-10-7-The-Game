@@ -19,6 +19,7 @@ public class MissionManager : MonoBehaviour
     public GameObject endPos;
     public GameObject deliveryTimer;
     public float timeToReachEndPos;
+    public float timeToReachEndPosOG;
 
 
     [Header("Used in Car Chase mission")]
@@ -36,19 +37,28 @@ public class MissionManager : MonoBehaviour
     [Header("Used for all")]
     public GameObject MissionSuccess;
     public GameObject MissionFailure;
+    public GameObject MissionStart;
+    public GameObject ObjectiveText;
 
 
     private void Start()
     {
+        timeToReachEndPosOG = timeToReachEndPos;
+
         //find the text and images
         MissionSuccess = GameObject.Find("MissionSuccess");
         MissionFailure = GameObject.Find("MissionFailure");
+        MissionStart = GameObject.Find("MissionStart");
+        deliveryTimer = GameObject.Find("DeliveryTimer");
+        ObjectiveText = GameObject.Find("ObjectiveText");
         //set UI elements to false
-        carToChaseImage.SetActive(false);
-        carToTailImage.SetActive(false);
+        //carToChaseImage.SetActive(false);
+        //carToTailImage.SetActive(false);
         deliveryTimer.SetActive(false);
         MissionSuccess.SetActive(false);
         MissionFailure.SetActive(false);
+        MissionStart.SetActive(false);
+        ObjectiveText.SetActive(false);
 
     }
     //what is the mission type
@@ -79,6 +89,7 @@ public class MissionManager : MonoBehaviour
     {
         //reduce the timer if the UI element is enabled
         if (deliveryTimer.activeInHierarchy) {
+            deliveryTimer.GetComponent<Text>().text = "Time Remaining: " + timeToReachEndPos.ToString("F2");
             timeToReachEndPos -= Time.deltaTime;
             if (timeToReachEndPos <= 0) {
                 timeToReachEndPos = 0;
@@ -93,6 +104,10 @@ public class MissionManager : MonoBehaviour
         missionStarted = true;
         //activate the delivery timer
         deliveryTimer.SetActive(true);
+        ObjectiveText.SetActive(true);
+        MissionStart.SetActive(false);
+
+        ObjectiveText.GetComponent<Text>().text = "Deliver The Package";
     }
 
     //How and what to do when the delivery mission ends
@@ -101,10 +116,16 @@ public class MissionManager : MonoBehaviour
         if (timeToReachEndPos <= 0)
         {
             MissionFailure.SetActive(true);
+            ObjectiveText.SetActive(false);
+            //reset the timer
+            timeToReachEndPos = timeToReachEndPosOG;
         }
         //if the player got to the position in time
         else {
             MissionSuccess.SetActive(true);
+            ObjectiveText.SetActive(false);
+            //destroy the mission object when the mission is complete
+            Destroy(this.gameObject);
         }
         //set it so there is no mission and there is no timer
         missionStarted = false;
