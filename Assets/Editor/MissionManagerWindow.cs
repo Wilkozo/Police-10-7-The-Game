@@ -74,7 +74,7 @@ public class MissionManagerWindow : EditorWindow {
         Selection.activeGameObject = mission.gameObject;
 
         //creating the end position object
-        GameObject positionToGetTo = new GameObject("PositionToGetTo " + MissionObjective.transform.childCount);
+        GameObject positionToGetTo = new GameObject("PositionToGetTo " + MissionObjective.transform.childCount, typeof(DeliveryEnd));
         positionToGetTo.transform.SetParent(MissionObjective.transform, false);
         //sets a trigger box on the empty end pos
         positionToGetTo.AddComponent<BoxCollider>().isTrigger = true;
