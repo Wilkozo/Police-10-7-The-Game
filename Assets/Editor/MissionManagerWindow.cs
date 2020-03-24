@@ -34,7 +34,7 @@ public class MissionManagerWindow : EditorWindow {
         obj.ApplyModifiedProperties();
     }
 
-
+    //buttons to do stuff in the window
     void DrawButtons() {
 
         if (GUILayout.Button("Create a Different Type Mission"))
@@ -89,8 +89,6 @@ public class MissionManagerWindow : EditorWindow {
         mission.missionType("Delivery");
         //set the mission end position
         mission.endPos = positionToGetTo;
-        //assign a default value for the timer
-        mission.timeToReachEndPos = 20.0f;
 
     }
 

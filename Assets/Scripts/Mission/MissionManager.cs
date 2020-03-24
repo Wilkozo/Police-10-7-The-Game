@@ -18,7 +18,7 @@ public class MissionManager : MonoBehaviour
     [Header("Used in Delivery mission")]
     public GameObject endPos;
     public GameObject deliveryTimer;
-    public float timeToReachEndPos;
+    public float timeToReachEndPos = 20.0f;
     public float timeToReachEndPosOG;
 
 
