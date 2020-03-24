@@ -65,6 +65,7 @@ public class MissionManagerWindow : EditorWindow {
     }
 
     //what to do if the user wants a delivery mission
+    //Should be done
     void Delivery() {
 
         //create a mission object
@@ -108,7 +109,7 @@ public class MissionManagerWindow : EditorWindow {
         positionToGetTo.transform.SetParent(MissionObjective.transform, false);
 
         //creating the Mission Giver object
-        GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
+        GameObject missionGiver = new GameObject("Mission Giver Tailing " + MissionObjective.transform.childCount, typeof(MissionGiver));
         missionGiver.transform.SetParent(MissionObjective.transform, false);
         //sets a trigger box on the empty end pos
         missionGiver.AddComponent<BoxCollider>().isTrigger = true;
@@ -127,7 +128,7 @@ public class MissionManagerWindow : EditorWindow {
         Selection.activeGameObject = mission.gameObject;
 
         //creating the Mission Giver object
-        GameObject missionGiver = new GameObject("Mission Giver Delivery " + MissionObjective.transform.childCount, typeof(MissionGiver));
+        GameObject missionGiver = new GameObject("Mission Giver Car Chase " + MissionObjective.transform.childCount, typeof(MissionGiver));
         missionGiver.transform.SetParent(MissionObjective.transform, false);
         //sets a trigger box on the empty end pos
         missionGiver.AddComponent<BoxCollider>().isTrigger = true;
