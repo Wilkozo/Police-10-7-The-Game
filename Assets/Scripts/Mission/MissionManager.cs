@@ -123,6 +123,8 @@ public class MissionManager : MonoBehaviour
             }
         }
 
+        //Tailing mission
+        //checks to see if the mission has been completed
         if (missionStarted && carToTailImage.activeInHierarchy) {
             if (navigator.checkMissionComplete()){
                 endTailingMission(true);

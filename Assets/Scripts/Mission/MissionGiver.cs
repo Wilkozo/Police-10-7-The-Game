@@ -18,6 +18,8 @@ public class MissionGiver : MonoBehaviour
     {
         //how to start a mission, player pushes interact and is within the trigger box
         if (other.tag == "Player" && MissionMan.missionStarted == false) {
+            MissionMan.MissionSuccess.SetActive(false);
+            MissionMan.MissionFailure.SetActive(false);
             MissionMan.MissionStart.SetActive(true);
             if (Input.GetButtonDown("Interact"))
             {
