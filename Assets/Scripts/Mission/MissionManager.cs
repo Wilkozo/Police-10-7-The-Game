@@ -19,6 +19,7 @@ public class MissionManager : MonoBehaviour
     [Header("Used in Delivery mission")]
     public GameObject endPos;
     public GameObject deliveryTimer;
+    public string Objective;
     public float timeToReachEndPos = 20.0f;
     public float timeToReachEndPosOG;
 
@@ -143,7 +144,7 @@ public class MissionManager : MonoBehaviour
         ObjectiveText.SetActive(true);
         MissionStart.SetActive(false);
 
-        ObjectiveText.GetComponent<Text>().text = "Deliver The Package";
+        ObjectiveText.GetComponent<Text>().text = Objective;
     }
 
     //How and what to do when the delivery mission ends
