@@ -13,6 +13,11 @@ public class MissionGiver : MonoBehaviour
         MissionMan = this.transform.parent.GetComponent<MissionManager>();
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        MissionMan.MissionStart.SetActive(false);
+    }
+
     //when the player stays in the trigger zone
     private void OnTriggerStay(Collider other)
     {
