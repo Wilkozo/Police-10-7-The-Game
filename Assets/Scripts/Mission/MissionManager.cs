@@ -158,6 +158,7 @@ public class MissionManager : MonoBehaviour
         else {
             MissionSuccess.SetActive(true);
             ObjectiveText.SetActive(false);
+            RespectManager.RespectValue += 10;
             //destroy the mission object when the mission is complete
             Destroy(this.gameObject);
         }
@@ -188,14 +189,16 @@ public class MissionManager : MonoBehaviour
         //if the player completes the mission
         if (success)
         {
+            RespectManager.RespectValue += 10;
             //set the mission success text to true
             MissionSuccess.SetActive(true);
             //set the objective text to false
             ObjectiveText.SetActive(false);
-            //destroy this gameobject
-            //Destroy(this.gameObject);
+            //Disable the image
+            carToTailImage.SetActive(false);
         }
         else {
+            RespectManager.RespectValue -= 10;
             //set the mission failure text to true
             MissionFailure.SetActive(true);
             //set the objective text to false
