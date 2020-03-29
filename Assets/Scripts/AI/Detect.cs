@@ -14,6 +14,8 @@ public class Detect : MonoBehaviour
     //how fast the ai will travel
     public float speed;
 
+    public LayerMask myLayerMask;
+
     //how far the ai can see
     public float viewLength;
 
@@ -40,7 +42,7 @@ public class Detect : MonoBehaviour
 
 
         //if it hits something then stop
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), fwd, out objectHit, viewLength))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), fwd, out objectHit, viewLength, myLayerMask))
         {
              agent.speed = 0;
             agent.velocity = Vector3.zero;
@@ -48,7 +50,7 @@ public class Detect : MonoBehaviour
         else {
             agent.speed = 8;
         }
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z), fwd, out objectHit, viewLength))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.25f, transform.position.z), fwd, out objectHit, viewLength, myLayerMask))
         {
             agent.speed = 0;
             agent.velocity = Vector3.zero;
@@ -57,7 +59,7 @@ public class Detect : MonoBehaviour
         {
             agent.speed = 8;
         }
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), fwd, out objectHit, viewLength))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 0.75f, transform.position.z), fwd, out objectHit, viewLength, myLayerMask))
         {
             agent.speed = 0;
             agent.velocity = Vector3.zero;
@@ -66,7 +68,7 @@ public class Detect : MonoBehaviour
         {
             agent.speed = 8;
         }
-        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z), fwd, out objectHit, viewLength))
+        if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y + 1.75f, transform.position.z), fwd, out objectHit, viewLength, myLayerMask))
         {
             agent.speed = 0;
             agent.velocity = Vector3.zero;

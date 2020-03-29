@@ -8,7 +8,7 @@ public class shooting : MonoBehaviour
     public Transform BulletStart;
     public GameObject ShotObject;
 
-    public float ShotForce = 15f;
+    public float ShotForce = 60000f;
 
 
     // Update is called once per frame

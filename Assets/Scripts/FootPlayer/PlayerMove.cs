@@ -39,9 +39,9 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetButtonDown("ExitCar"))
         {
             //add code so the player can leave and enter cars
-            this.gameObject.GetComponent<MeshRenderer>().enabled = true;
             this.gameObject.GetComponent<CharacterController>().enabled = true;
             this.gameObject.GetComponent<BoxCollider>().enabled = true;
+            this.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
             this.transform.parent.GetComponentInChildren<WheelDrive>().PlayerDrivable = false;
 
             this.transform.parent.GetComponent<WheelDrive>().maxTorque = 300.0f;
@@ -94,10 +94,10 @@ public class PlayerMove : MonoBehaviour
             //sets which car can be driven
             other.gameObject.GetComponentInChildren<WheelDrive>().PlayerDrivable = true;
             //disable walking controls
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.transform.parent = other.gameObject.transform;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
+            this.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             if (other.gameObject.GetComponent<NavMeshAgent>())
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
@@ -117,10 +117,10 @@ public class PlayerMove : MonoBehaviour
             //sets which car can be driven
             other.gameObject.GetComponent<WheelDrive>().PlayerDrivable = true;
             //disable walking controls
-            this.gameObject.GetComponent<MeshRenderer>().enabled = false;
             this.gameObject.GetComponent<CharacterController>().enabled = false;
             this.gameObject.GetComponent<BoxCollider>().enabled = false;
             this.transform.parent = other.gameObject.transform;
+            this.GetComponentInChildren<SkinnedMeshRenderer>().enabled = false;
             if (other.gameObject.GetComponent<NavMeshAgent>())
             {
                 other.gameObject.GetComponent<NavMeshAgent>().enabled = false;
