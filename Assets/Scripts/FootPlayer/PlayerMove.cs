@@ -44,7 +44,7 @@ public class PlayerMove : MonoBehaviour
             this.GetComponentInChildren<SkinnedMeshRenderer>().enabled = true;
             this.transform.parent.GetComponentInChildren<WheelDrive>().PlayerDrivable = false;
 
-            this.transform.parent.GetComponent<WheelDrive>().maxTorque = 300.0f;
+            this.transform.parent.GetComponent<WheelDrive>().maxTorque = 3000.0f;
             this.transform.parent = null;
         }
 
