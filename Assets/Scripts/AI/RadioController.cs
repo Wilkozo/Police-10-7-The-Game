@@ -33,7 +33,6 @@ public class RadioController : MonoBehaviour
         if (player.GetComponentInChildren<SkinnedMeshRenderer>().enabled == false)
         {
             
-
             //if the audio source is not playing anything
             if (!audioSource.isPlaying)
              {

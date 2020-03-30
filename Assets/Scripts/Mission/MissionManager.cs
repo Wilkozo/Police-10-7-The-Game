@@ -44,6 +44,7 @@ public class MissionManager : MonoBehaviour
     public GameObject MissionStart;
     public GameObject ObjectiveText;
     public GameObject Player;
+    public GameObject directionToGo;
 
     private WaypointNavigator navigator;
 
@@ -61,6 +62,7 @@ public class MissionManager : MonoBehaviour
         MissionStart = GameObject.Find("MissionStart");
         deliveryTimer = GameObject.Find("DeliveryTimer");
         ObjectiveText = GameObject.Find("ObjectiveText");
+        directionToGo = GameObject.Find("Direction");
 
         navigator = this.GetComponentInChildren<WaypointNavigator>();
 
@@ -75,6 +77,7 @@ public class MissionManager : MonoBehaviour
         //set UI elements to false
         //carToChaseImage.SetActive(false);
         carToTailImage.SetActive(false);
+        directionToGo.SetActive(false);
         deliveryTimer.SetActive(false);
         MissionSuccess.SetActive(false);
         MissionFailure.SetActive(false);
@@ -113,6 +116,8 @@ public class MissionManager : MonoBehaviour
         //Delivery Mission
         //reduce the timer if the UI element is enabled
         if (deliveryTimer.activeInHierarchy) {
+            //look at the place in which the player is supposed to go
+            directionToGo.transform.LookAt(endPos.transform);
             //set the time remaining to 0 decimal places
             deliveryTimer.GetComponent<Text>().text = "Time Remaining: " + timeToReachEndPos.ToString("F0");
             //reduce the time remaining
@@ -127,6 +132,8 @@ public class MissionManager : MonoBehaviour
         //Tailing mission
         //checks to see if the mission has been completed
         if (missionStarted && carToTailImage.activeInHierarchy) {
+            //look at the place in which the player is supposed to go
+           // directionToGo.transform.LookAt(carToTail.transform.position);
             if (navigator.checkMissionComplete()){
                 endTailingMission(true);
             }
@@ -137,6 +144,8 @@ public class MissionManager : MonoBehaviour
 
     //what to do when a delivery mission starts
     public void startDeliveryMission() {
+        //set the direction marker to true
+        directionToGo.SetActive(true);
         //set it so the mission has been started
         missionStarted = true;
         //activate the delivery timer
@@ -154,6 +163,7 @@ public class MissionManager : MonoBehaviour
         {
             MissionFailure.SetActive(true);
             ObjectiveText.SetActive(false);
+            directionToGo.SetActive(false);
             //reset the timer
             timeToReachEndPos = timeToReachEndPosOG;
         }
@@ -161,6 +171,7 @@ public class MissionManager : MonoBehaviour
         else {
             MissionSuccess.SetActive(true);
             ObjectiveText.SetActive(false);
+            directionToGo.SetActive(false);
             RespectManager.RespectValue += 10;
             //destroy the mission object when the mission is complete
             Destroy(this.gameObject);
@@ -175,6 +186,8 @@ public class MissionManager : MonoBehaviour
     //what to do when a tailing mission starts
     public void startTailingMission()
     {
+        //set the direction marker to true
+        directionToGo.SetActive(true);
         //set it so there is a mission
         missionStarted = true;
         //start the AI car moving
@@ -199,6 +212,8 @@ public class MissionManager : MonoBehaviour
             ObjectiveText.SetActive(false);
             //Disable the image
             carToTailImage.SetActive(false);
+            //disbale the direction marker
+            directionToGo.SetActive(false);
         }
         else {
             RespectManager.RespectValue -= 10;
@@ -210,6 +225,8 @@ public class MissionManager : MonoBehaviour
             carToTailImage.SetActive(false);
             //reset the tag so the player can enter the car again
             carToTail.tag = "Car";
+            //disbale the direction marker
+            directionToGo.SetActive(false);
         }
         //set it so there is no active mission
         missionStarted = false;
