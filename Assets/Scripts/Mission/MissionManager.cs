@@ -133,7 +133,7 @@ public class MissionManager : MonoBehaviour
         //checks to see if the mission has been completed
         if (missionStarted && carToTailImage.activeInHierarchy) {
             //look at the place in which the player is supposed to go
-           // directionToGo.transform.LookAt(carToTail.transform.position);
+            directionToGo.transform.LookAt(carToTail.transform.position);
             if (navigator.checkMissionComplete()){
                 endTailingMission(true);
             }
