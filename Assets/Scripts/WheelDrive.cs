@@ -44,18 +44,6 @@ public class WheelDrive : MonoBehaviour
         mainCam = GameObject.Find("MainCam");
         player = GameObject.Find("DrivingCam");
         m_Wheels = GetComponentsInChildren<WheelCollider>();
-
-        //for (int i = 0; i < m_Wheels.Length; ++i)
-        //{
-        //    var wheel = m_Wheels[i];
-
-        //    // Create wheel shapes only when needed.
-        //    if (wheelShape != null)
-        //    {
-        //        var ws = Instantiate(wheelShape);
-        //        ws.transform.parent = wheel.transform;
-        //    }
-        //}
         player = GameObject.Find("Player");
     }
 
@@ -103,38 +91,7 @@ public class WheelDrive : MonoBehaviour
                 {
                     wheel.motorTorque = torque;
                 }
-
-                //    // Update visual wheels if any.
-                //    if (wheelShape)
-                //    {
-                //        Quaternion q;
-                //        Vector3 p;
-                //        wheel.GetWorldPose(out p, out q);
-
-                //        // Assume that the only child of the wheelcollider is the wheel shape.
-                //        Transform shapeTransform = wheel.transform.GetChild(0);
-
-                //        if (wheel.name == "a0l" || wheel.name == "a1l" || wheel.name == "a2l")
-                //        {
-                //            shapeTransform.rotation = q * Quaternion.Euler(0, 180, 0);
-                //            shapeTransform.position = p;
-                //        }
-                //        else
-                //        {
-                //            shapeTransform.position = p;
-                //            shapeTransform.rotation = q;
-                //        }
-                //    }
-                //}
-                //if (Input.GetButtonDown("ExitCar"))
-                //{
-
-                //    player.SetActive(true);
-                //    mainCam.SetActive(true);
-                //    drivingCam.SetActive(true);
-
-                //    PlayerDrivable = false;
-                //}
+                
             }
 
         }
