@@ -44,7 +44,7 @@ public class Detect : MonoBehaviour
         //if it hits something then stop
         if (Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), fwd, out objectHit, viewLength, myLayerMask))
         {
-             agent.speed = 0;
+            agent.speed = 0;
             agent.velocity = Vector3.zero;
         }
         else {

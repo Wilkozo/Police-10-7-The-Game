@@ -30,10 +30,9 @@ public class RadioController : MonoBehaviour
     void Update()
     {
         //sets the radio to play if the player is in a car
-        if (player.GetComponent<MeshRenderer>().enabled == false)
+        if (player.GetComponentInChildren<SkinnedMeshRenderer>().enabled == false)
         {
             
-
             //if the audio source is not playing anything
             if (!audioSource.isPlaying)
              {
