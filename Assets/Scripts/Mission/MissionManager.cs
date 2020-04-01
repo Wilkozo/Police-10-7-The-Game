@@ -118,6 +118,10 @@ public class MissionManager : MonoBehaviour
         if (deliveryTimer.activeInHierarchy) {
             //look at the place in which the player is supposed to go
             directionToGo.transform.LookAt(endPos.transform);
+            //force it to be at a 90 degree angle
+            Vector3 temp = directionToGo.transform.eulerAngles;
+            temp.x = directionToGo.transform.eulerAngles.x + 90;
+            directionToGo.transform.eulerAngles = temp;
             //set the time remaining to 0 decimal places
             deliveryTimer.GetComponent<Text>().text = "Time Remaining: " + timeToReachEndPos.ToString("F0");
             //reduce the time remaining
