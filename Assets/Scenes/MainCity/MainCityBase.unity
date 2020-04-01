@@ -1725,8 +1725,8 @@ MonoBehaviour:
   missionTypeString: Delivery
   endPos: {fileID: 758134800}
   deliveryTimer: {fileID: 0}
-  Objective: Get Down To The Speak Easy
-  timeToReachEndPos: 240
+  Objective: 'Deliver the Alcohol to the Speak Easy '
+  timeToReachEndPos: 160
   timeToReachEndPosOG: 0
   carToChase: {fileID: 0}
   carToChaseImage: {fileID: 0}
@@ -3318,6 +3318,7 @@ Transform:
   - {fileID: 1208730937}
   - {fileID: 247622747}
   - {fileID: 46440766}
+  - {fileID: 1198939910}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10982,8 +10983,8 @@ MonoBehaviour:
   missionTypeString: Delivery
   endPos: {fileID: 2038830825}
   deliveryTimer: {fileID: 0}
-  Objective: 'Get around the Back of The Police Station '
-  timeToReachEndPos: 240
+  Objective: Get to the Warehouse
+  timeToReachEndPos: 160
   timeToReachEndPosOG: 0
   carToChase: {fileID: 0}
   carToChaseImage: {fileID: 0}
@@ -11000,6 +11001,65 @@ MonoBehaviour:
   ObjectiveText: {fileID: 0}
   Player: {fileID: 0}
   directionToGo: {fileID: 0}
+--- !u!1 &248301755
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248301756}
+  - component: {fileID: 248301758}
+  - component: {fileID: 248301757}
+  m_Layer: 2
+  m_Name: Mission Giver Delivery 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248301756
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248301755}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.07, y: 0, z: -56.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1239208561}
+  m_Father: {fileID: 1198939910}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &248301757
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248301755}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 15, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &248301758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248301755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b977e1018c6e1b6499c0d1055d43a60d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MissionMan: {fileID: 0}
 --- !u!1 &248887227
 GameObject:
   m_ObjectHideFlags: 0
@@ -12430,8 +12490,8 @@ MonoBehaviour:
   missionTypeString: Delivery
   endPos: {fileID: 895871070}
   deliveryTimer: {fileID: 0}
-  Objective: Get Us To The Safe House Fast!!
-  timeToReachEndPos: 240
+  Objective: Get to the Safe House Fast
+  timeToReachEndPos: 160
   timeToReachEndPosOG: 0
   carToChase: {fileID: 0}
   carToChaseImage: {fileID: 0}
@@ -26892,7 +26952,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 725112036}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.69, y: 4.8, z: 116.2}
+  m_LocalPosition: {x: 21.3, y: 4.8, z: 116.2}
   m_LocalScale: {x: 16.16145, y: 7.88, z: 12.826169}
   m_Children: []
   m_Father: {fileID: 221620442}
@@ -43710,6 +43770,90 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 77157eaa592886144b34a7c5a6d1bdbb, type: 3}
+--- !u!1001 &1193439691
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 248301756}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.275
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.10000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.10000002
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a259c788be6c2344ab16b22874361a6,
+        type: 3}
+      propertyPath: m_Name
+      value: MainCharacterLowPoly (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0a259c788be6c2344ab16b22874361a6, type: 3}
 --- !u!1001 &1197537406
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43785,6 +43929,73 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1197537406}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1198939909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1198939910}
+  - component: {fileID: 1198939911}
+  m_Layer: 0
+  m_Name: Delivery Mission 4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1198939910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198939909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.3, y: 32.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1500085690}
+  - {fileID: 248301756}
+  m_Father: {fileID: 115948745}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1198939911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1198939909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23e03369147b03a40837fa7418ebe3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionStarted: 0
+  missionTypeString: Delivery
+  endPos: {fileID: 1500085689}
+  deliveryTimer: {fileID: 0}
+  Objective: Get to the Don's Estate
+  timeToReachEndPos: 160
+  timeToReachEndPosOG: 0
+  carToChase: {fileID: 0}
+  carToChaseImage: {fileID: 0}
+  maxDistanceChase: 0
+  carToTail: {fileID: 0}
+  carToTailImage: {fileID: 0}
+  basePos: {fileID: 0}
+  StartWaypoint: {fileID: 0}
+  maxDistanceTailing: 0
+  minDistance: 0
+  MissionSuccess: {fileID: 0}
+  MissionFailure: {fileID: 0}
+  MissionStart: {fileID: 0}
+  ObjectiveText: {fileID: 0}
+  Player: {fileID: 0}
+  directionToGo: {fileID: 0}
 --- !u!1 &1199666212
 GameObject:
   m_ObjectHideFlags: 0
@@ -44990,6 +45201,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: c35626e126c842b41a968078ea7bc0ed,
     type: 3}
   m_PrefabInstance: {fileID: 969315111}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1239208561 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 0a259c788be6c2344ab16b22874361a6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1193439691}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1242232317 stripped
 Transform:
@@ -48947,14 +49164,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395075928}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -55.09999, y: 33.3, z: 210.14}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 316.6, y: 32.51, z: 93.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1060755212}
   m_Father: {fileID: 46440766}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!65 &1395075930
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -54167,6 +54384,63 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 790263050}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1500085689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1500085690}
+  - component: {fileID: 1500085692}
+  - component: {fileID: 1500085691}
+  m_Layer: 2
+  m_Name: PositionToGetTo 0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1500085690
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500085689}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43.04, y: 0, z: 185.65}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1198939910}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1500085691
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500085689}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.3, y: 15, z: 2.71}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1500085692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1500085689}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53c083b3bbb427a4295ead1050160220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1501362389
 GameObject:
   m_ObjectHideFlags: 0
@@ -70631,7 +70905,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038830825}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -49.53, y: 33.7, z: 197}
+  m_LocalPosition: {x: 319.4, y: 33.7, z: 5.8}
   m_LocalScale: {x: 34.27, y: 61.66, z: 5.59}
   m_Children: []
   m_Father: {fileID: 247622747}
@@ -70648,7 +70922,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 0.33, y: 5.76, z: 5.73}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2038830828
 MonoBehaviour:
