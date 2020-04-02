@@ -9,6 +9,7 @@ public class RadioController : MonoBehaviour
     public List<AudioSource> radioTracks;
     public Transform trackHolder;
     public AudioSource audioSource;
+    public AudioSource backgroundTrack;
 
     public int trackToPlay;
 
@@ -32,7 +33,8 @@ public class RadioController : MonoBehaviour
         //sets the radio to play if the player is in a car
         if (player.GetComponentInChildren<SkinnedMeshRenderer>().enabled == false)
         {
-            
+            backgroundTrack.Stop();
+
             //if the audio source is not playing anything
             if (!audioSource.isPlaying)
              {
@@ -50,6 +52,9 @@ public class RadioController : MonoBehaviour
         {
             //disable the radio system if the player is not in a car 
             audioSource.Stop();
+            if (!backgroundTrack.isPlaying) {
+                backgroundTrack.Play();
+            }
         }
     }
 }
