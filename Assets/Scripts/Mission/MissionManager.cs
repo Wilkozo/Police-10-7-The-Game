@@ -49,6 +49,7 @@ public class MissionManager : MonoBehaviour
 
     public bool isTripped;
     private WaypointNavigator navigator;
+    public GameObject gameComplete;
 
     #endregion
 
@@ -64,10 +65,11 @@ public class MissionManager : MonoBehaviour
         deliveryTimer = GameObject.Find("DeliveryTimer");
         ObjectiveText = GameObject.Find("ObjectiveText");
         directionToGo = GameObject.Find("Direction");
+        gameComplete = GameObject.Find("GameComplete");
 
         navigator = this.GetComponentInChildren<WaypointNavigator>();
 
-        StartCoroutine(LateStart(0.0001f));
+        StartCoroutine(LateStart(0.1f));
     }
 
     //makes it so all the components can be found
@@ -77,6 +79,7 @@ public class MissionManager : MonoBehaviour
         //Your Function You Want to Call
         //set UI elements to false
         //carToChaseImage.SetActive(false);
+        gameComplete.SetActive(false);
         carToTailImage.SetActive(false);
         directionToGo.SetActive(false);
         deliveryTimer.SetActive(false);
@@ -85,6 +88,7 @@ public class MissionManager : MonoBehaviour
         MissionFailure.SetActive(false);
         MissionStart.SetActive(false);
         ObjectiveText.SetActive(false);
+        
     }
 
     IEnumerator MissionLost() {
@@ -120,6 +124,15 @@ public class MissionManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKey(KeyCode.T)) {
+            RespectManager.RespectValue += 5;
+        }
+        if (RespectManager.RespectValue >= 40)
+        {
+            gameComplete.SetActive(true);
+        }
+
         //Delivery Mission
         //reduce the timer if the UI element is enabled
         if (deliveryTimer.activeInHierarchy) {
