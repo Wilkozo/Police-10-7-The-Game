@@ -124,7 +124,7 @@ public class MissionManager : MonoBehaviour
         //reduce the timer if the UI element is enabled
         if (deliveryTimer.activeInHierarchy) {
             //look at the place in which the player is supposed to go
-            directionToGo.transform.LookAt(endPos.transform);
+            directionToGo.transform.LookAt(this.endPos.transform);
             //force it to be at a 90 degree angle
             Vector3 temp = directionToGo.transform.eulerAngles;
             temp.x = directionToGo.transform.eulerAngles.x + 90;

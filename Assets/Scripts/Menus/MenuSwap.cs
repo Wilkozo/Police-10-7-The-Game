@@ -19,7 +19,7 @@ public class MenuSwap : MonoBehaviour
     }
 
     public void PlayGame() {
-        Application.LoadLevel("levelToLoad");
+        Application.LoadLevel("MainCityBase");
     }
     
     public void controlsClicke()
