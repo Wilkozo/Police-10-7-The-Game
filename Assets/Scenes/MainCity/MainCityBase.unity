@@ -1726,7 +1726,7 @@ MonoBehaviour:
   endPos: {fileID: 758134800}
   deliveryTimer: {fileID: 0}
   Objective: 'Deliver the Alcohol to the Speak Easy '
-  timeToReachEndPos: 160
+  timeToReachEndPos: 120
   timeToReachEndPosOG: 0
   carToChase: {fileID: 0}
   carToChaseImage: {fileID: 0}
@@ -10984,7 +10984,7 @@ MonoBehaviour:
   endPos: {fileID: 2038830825}
   deliveryTimer: {fileID: 0}
   Objective: Get to the Warehouse
-  timeToReachEndPos: 160
+  timeToReachEndPos: 120
   timeToReachEndPosOG: 0
   carToChase: {fileID: 0}
   carToChaseImage: {fileID: 0}
@@ -12491,7 +12491,7 @@ MonoBehaviour:
   endPos: {fileID: 895871070}
   deliveryTimer: {fileID: 0}
   Objective: Get to the Safe House Fast
-  timeToReachEndPos: 160
+  timeToReachEndPos: 120
   timeToReachEndPosOG: 0
   carToChase: {fileID: 0}
   carToChaseImage: {fileID: 0}
@@ -42773,6 +42773,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 556023517}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1153553663 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6487409675077723672, guid: f7f6df884f89e2e4fa0521c720448852,
+    type: 3}
+  m_PrefabInstance: {fileID: 1299966052}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1155336164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43945,7 +43951,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1198939910
 Transform:
   m_ObjectHideFlags: 0
@@ -71338,6 +71344,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 196841634}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2071324623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2691151333205303712, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1153553663}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.453417
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1737287
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -21.274462
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303713, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2691151333205303715, guid: 802e96ba7657e20479216e36b329e9fa,
+        type: 3}
+      propertyPath: m_Name
+      value: RadioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 802e96ba7657e20479216e36b329e9fa, type: 3}
 --- !u!1 &2074193743
 GameObject:
   m_ObjectHideFlags: 0
