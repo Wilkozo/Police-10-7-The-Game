@@ -46,13 +46,14 @@ public class MissionManager : MonoBehaviour
     public GameObject Player;
     public GameObject directionToGo;
 
+
+    public bool isTripped;
     private WaypointNavigator navigator;
 
     #endregion
 
     private void Start()
     {
-
         timeToReachEndPosOG = timeToReachEndPos;
 
         //find the text and images
@@ -66,7 +67,7 @@ public class MissionManager : MonoBehaviour
 
         navigator = this.GetComponentInChildren<WaypointNavigator>();
 
-        StartCoroutine(LateStart(0.1f));
+        StartCoroutine(LateStart(0.0001f));
     }
 
     //makes it so all the components can be found
@@ -84,6 +85,13 @@ public class MissionManager : MonoBehaviour
         MissionFailure.SetActive(false);
         MissionStart.SetActive(false);
         ObjectiveText.SetActive(false);
+    }
+
+    IEnumerator MissionLost() {
+
+        Camera.main.transform.position += Vector3.up * 15;
+        yield return new WaitForSeconds(5);
+
     }
  
     //what is the mission type
@@ -112,12 +120,11 @@ public class MissionManager : MonoBehaviour
 
     private void Update()
     {
-
         //Delivery Mission
         //reduce the timer if the UI element is enabled
         if (deliveryTimer.activeInHierarchy) {
             //look at the place in which the player is supposed to go
-            directionToGo.transform.LookAt(endPos.transform);
+            directionToGo.transform.LookAt(this.endPos.transform);
             //force it to be at a 90 degree angle
             Vector3 temp = directionToGo.transform.eulerAngles;
             temp.x = directionToGo.transform.eulerAngles.x + 90;
@@ -141,6 +148,10 @@ public class MissionManager : MonoBehaviour
             if (navigator.checkMissionComplete()){
                 endTailingMission(true);
             }
+        }
+        if (isTripped) {
+            StartCoroutine(MissionLost());
+            Application.LoadLevel(Application.loadedLevel);
         }
     }
 
@@ -168,6 +179,7 @@ public class MissionManager : MonoBehaviour
             MissionFailure.SetActive(true);
             ObjectiveText.SetActive(false);
             directionToGo.SetActive(false);
+            isTripped = true;
             //reset the timer
             timeToReachEndPos = timeToReachEndPosOG;
         }
@@ -231,6 +243,7 @@ public class MissionManager : MonoBehaviour
             carToTail.tag = "Car";
             //disbale the direction marker
             directionToGo.SetActive(false);
+            isTripped = true;
         }
         //set it so there is no active mission
         missionStarted = false;

@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Mainmenu.unity
+    guid: 13928f05a3abd1845908922ce2fbcabc
+  - enabled: 1
+    path: Assets/Desmond Assets/Desmond Scene.unity
+    guid: 9de07421ffc37fe49bd1ea576f5040e3
+  - enabled: 1
+    path: Assets/Scenes/MainCity/MainCityBase.unity
+    guid: b05b62dfb1f5f524abe5db53a2ba3e9b
+  - enabled: 1
     path: Assets/Scenes/ON_FOOT_Testing.unity
     guid: 5ff1fbe4fc3ee5447a446dbe4927deb7
   - enabled: 1
